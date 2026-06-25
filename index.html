@@ -1,473 +1,549 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agência Pantoja & Co | Criatividade que Transforma</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pantoja & Co | Ruby on Rails SaaS & eCommerce Agency — Sydney</title>
+<meta name="description" content="Sydney-based Ruby on Rails technical agency specialising in SaaS platforms and eCommerce. We build scalable, secure software that grows with your business.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
---black:#0a0a0a;
---white:#fafafa;
---gold:#d4a843;
---gold-light:#f0c060;
---cream:#f5f0e8;
---gray:#888;
---dark-gray:#1a1a1a;
+--bg:#080808;
+--bg2:#0f0f0f;
+--bg3:#141414;
+--bg4:#1a1a1a;
+--red:#e5342a;
+--red2:#ff4d42;
+--red-dim:rgba(229,52,42,.12);
+--red-glow:rgba(229,52,42,.25);
+--white:#f0f0f0;
+--white2:rgba(240,240,240,.7);
+--white3:rgba(240,240,240,.35);
+--white4:rgba(240,240,240,.08);
+--border:rgba(240,240,240,.07);
+--border-red:rgba(229,52,42,.3);
+--ruby:#cc342d;
+--rails:#d30000;
+--mono:"Space Mono",monospace;
+--sans:"Space Grotesk",sans-serif;
 }
 html{scroll-behavior:smooth}
-body{font-family:"Inter",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
-/* SCROLLBAR */
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+body{font-family:var(--sans);background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px}
+::selection{background:var(--red);color:#fff}
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;backdrop-filter:blur(0px)}
-nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:16px 60px;border-bottom:1px solid rgba(212,168,67,.2)}
-.nav-logo{font-family:"Syne",sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-0.5px}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;gap:40px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-transform:uppercase}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--black);padding:12px 28px;border-radius:50px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .3s;letter-spacing:.5px}
-.nav-cta:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,.4)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:22px 64px;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:14px 64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--red);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:.85rem;color:#fff;letter-spacing:-1px}
+.logo-text{font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--white);letter-spacing:-.5px}
+.logo-text span{color:var(--red)}
+.nav-center{display:flex;gap:36px;list-style:none}
+.nav-center a{color:var(--white3);font-size:.85rem;font-weight:500;text-decoration:none;letter-spacing:.3px;transition:color .3s;text-transform:uppercase;letter-spacing:.8px}
+.nav-center a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-badge{background:var(--red-dim);border:1px solid var(--border-red);color:var(--red2);padding:6px 14px;border-radius:6px;font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:1px}
+.nav-cta{background:var(--red);color:#fff;padding:10px 24px;border-radius:6px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .3s;letter-spacing:.3px}
+.nav-cta:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 8px 24px var(--red-glow)}
 /* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 60px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(212,168,67,.15) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(212,168,67,.08) 0%,transparent 50%)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.05) 1px,transparent 1px);background-size:60px 60px}
-.hero-content{position:relative;z-index:2;max-width:700px}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:var(--gold);padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:32px}
-.hero-tag::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero h1{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
-.hero h1 .line{overflow:hidden;display:block}
-.hero h1 .accent{color:var(--gold)}
-.hero-desc{font-size:1.1rem;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px;margin-bottom:48px}
-.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.btn-primary{background:var(--gold);color:var(--black);padding:16px 40px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,168,67,.5)}
-.btn-secondary{color:var(--white);padding:16px 40px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:all .3s;border:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:10px}
-.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{position:absolute;right:60px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px;z-index:2}
-.stat-item{text-align:center}
-.stat-num{font-family:"Syne",sans-serif;font-size:2.5rem;font-weight:800;color:var(--gold);line-height:1}
-.stat-label{font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
-.stat-line{width:1px;height:60px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto}
-/* MARQUEE */
-.marquee-section{padding:40px 0;border-top:1px solid rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.15);overflow:hidden}
-.marquee-track{display:flex;gap:60px;animation:marquee 20s linear infinite;white-space:nowrap}
-.marquee-track:hover{animation-play-state:paused}
-.marquee-item{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:20px;letter-spacing:1px}
-.marquee-item span{color:var(--gold);font-size:1.4rem}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* SECTIONS */
-section{padding:120px 60px}
-.section-tag{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-.section-tag::before{content:"";flex-shrink:0;width:30px;height:1px;background:var(--gold)}
-.section-title{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
-.section-subtitle{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.7;max-width:500px}
-/* ABOUT */
-.about{background:var(--dark-gray)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
-.about-visual{position:relative}
-.about-card{background:var(--black);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:40px;position:relative;overflow:hidden}
-.about-card::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.about-card-num{font-family:"Syne",sans-serif;font-size:5rem;font-weight:800;color:rgba(212,168,67,.1);line-height:1;margin-bottom:12px}
-.about-card-title{font-size:1.2rem;font-weight:600;margin-bottom:8px}
-.about-card-text{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.6}
-.about-grid-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.about-text p{color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px;font-size:1rem}
-.about-features{display:flex;flex-direction:column;gap:16px;margin-top:32px}
-.feature-item{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.7);font-size:.9rem}
-.feature-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0}
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.service-card{background:var(--dark-gray);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;transition:all .4s;cursor:default;position:relative;overflow:hidden}
-.service-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .4s;transform-origin:left}
-.service-card:hover{border-color:rgba(212,168,67,.3);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5)}
-.service-card:hover::after{transform:scaleX(1)}
-.service-icon{width:56px;height:56px;background:rgba(212,168,67,.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.5rem;transition:all .4s}
-.service-card:hover .service-icon{background:rgba(212,168,67,.2);transform:rotate(5deg)}
-.service-card h3{font-family:"Syne",sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:12px}
-.service-card p{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.7}
-.service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.service-tag{background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);padding:4px 12px;border-radius:20px;font-size:.75rem}
-/* PORTFOLIO */
-.portfolio{background:var(--dark-gray)}
-.portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
-.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
-.portfolio-item{border-radius:20px;overflow:hidden;position:relative;cursor:pointer;background:var(--black)}
-.portfolio-item:nth-child(1){grid-column:span 7;aspect-ratio:16/9}
-.portfolio-item:nth-child(2){grid-column:span 5;aspect-ratio:4/3}
-.portfolio-item:nth-child(3){grid-column:span 4;aspect-ratio:1}
-.portfolio-item:nth-child(4){grid-column:span 4;aspect-ratio:1}
-.portfolio-item:nth-child(5){grid-column:span 4;aspect-ratio:1}
-.portfolio-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform .6s}
-.portfolio-item:hover .portfolio-bg{transform:scale(1.05)}
-.portfolio-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px;transform:translateY(10px);opacity:0;transition:all .4s}
-.portfolio-item:hover .portfolio-overlay{opacity:1;transform:translateY(0)}
-.portfolio-cat{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
-.portfolio-name{font-family:"Syne",sans-serif;font-size:1.2rem;font-weight:700}
-.p1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
-.p2{background:linear-gradient(135deg,#0f3460,#533483)}
-.p3{background:linear-gradient(135deg,#2d1b69,#11998e)}
-.p4{background:linear-gradient(135deg,#373b44,#4286f4)}
-.p5{background:linear-gradient(135deg,#642b73,#c6426e)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 64px 80px}
+.hero-noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%)}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:800px;height:800px;background:radial-gradient(circle,rgba(229,52,42,.12) 0%,transparent 65%);pointer-events:none}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px;width:fit-content}
+.hero-tag-inner{display:flex;align-items:center;gap:8px;background:var(--red-dim);border:1px solid var(--border-red);padding:8px 16px;border-radius:6px;font-family:var(--mono);font-size:.72rem;font-weight:700;color:var(--red2);letter-spacing:1.5px;text-transform:uppercase}
+.hero-tag-dot{width:6px;height:6px;background:var(--red2);border-radius:50%;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hero h1{font-size:clamp(3.2rem,6.5vw,6rem);font-weight:700;line-height:1.02;letter-spacing:-3px;margin-bottom:32px;position:relative;z-index:1;max-width:900px}
+.hero h1 em{font-style:normal;color:var(--red);position:relative}
+.hero h1 em::after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:3px;background:var(--red);border-radius:2px;opacity:.4}
+.hero-sub{font-size:1.1rem;color:var(--white2);line-height:1.75;max-width:560px;margin-bottom:56px;font-weight:400}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:80px}
+.btn-red{background:var(--red);color:#fff;padding:15px 36px;border-radius:8px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px;letter-spacing:.2px}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 16px 40px var(--red-glow)}
+.btn-outline{color:var(--white);border:1px solid var(--border);padding:15px 36px;border-radius:8px;font-weight:500;font-size:.95rem;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.hero-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:40px;max-width:700px}
+.hero-stat{flex:1;padding:0 32px 0 0;border-right:1px solid var(--border)}
+.hero-stat:first-child{padding-left:0}
+.hero-stat:last-child{border-right:none}
+.stat-val{font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:6px}
+.stat-val span{color:var(--red)}
+.stat-label{font-size:.78rem;color:var(--white3);letter-spacing:.8px;text-transform:uppercase}
+.hero-right{position:absolute;right:64px;top:50%;transform:translateY(-50%);z-index:1;display:flex;flex-direction:column;gap:16px}
+.tech-badge{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all .3s;cursor:default;min-width:200px}
+.tech-badge:hover{border-color:var(--border-red);background:var(--bg4)}
+.tech-badge-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.tech-badge-text strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:2px}
+.tech-badge-text span{font-size:.75rem;color:var(--white3)}
+.tb-ruby .tech-badge-icon{background:rgba(204,52,45,.15)}
+.tb-rails .tech-badge-icon{background:rgba(211,0,0,.15)}
+.tb-react .tech-badge-icon{background:rgba(97,218,251,.1)}
+.tb-stripe .tech-badge-icon{background:rgba(99,91,255,.15)}
+.tb-aws .tech-badge-icon{background:rgba(255,153,0,.1)}
+/* TICKER */
+.ticker{padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;background:var(--bg2)}
+.ticker-track{display:flex;gap:48px;animation:ticker 25s linear infinite;white-space:nowrap;align-items:center}
+.ticker-item{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--white3);letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:14px;flex-shrink:0}
+.ticker-sep{color:var(--red);font-size:1rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* SECTION BASE */
+section{padding:120px 64px}
+.sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-eyebrow-line{width:24px;height:2px;background:var(--red);flex-shrink:0}
+.sec-eyebrow-text{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase}
+.sec-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px}
+.sec-desc{color:var(--white2);font-size:1rem;line-height:1.75;max-width:540px}
+/* SPECIALISMS - the big SaaS/eCommerce feature */
+.spec-section{background:var(--bg)}
+.spec-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:80px}
+.spec-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.spec-card{background:var(--bg2);padding:56px 48px;transition:all .4s;position:relative;overflow:hidden;cursor:default}
+.spec-card:hover{background:var(--bg3)}
+.spec-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.spec-card:hover::before{transform:scaleX(1)}
+.spec-card-tag{font-family:var(--mono);font-size:.65rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.spec-card-tag::before{content:"";width:20px;height:1px;background:var(--red)}
+.spec-card h3{font-size:1.8rem;font-weight:700;letter-spacing:-1px;margin-bottom:16px;line-height:1.1}
+.spec-card p{color:var(--white2);font-size:.92rem;line-height:1.75;margin-bottom:28px}
+.spec-card-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.spec-card-features li{display:flex;align-items:center;gap:10px;color:var(--white3);font-size:.85rem}
+.spec-card-features li::before{content:"";width:4px;height:4px;background:var(--red);border-radius:50%;flex-shrink:0}
+.spec-featured{grid-column:span 2;background:var(--bg2);padding:56px 48px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.spec-featured::after{content:"";position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--red-dim),transparent 65%);pointer-events:none}
+/* SERVICES GRID */
+.services-section{background:var(--bg2)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.svc-card{background:var(--bg2);padding:40px;transition:all .3s;position:relative;overflow:hidden}
+.svc-card:hover{background:var(--bg3)}
+.svc-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px}
+.svc-icon{width:48px;height:48px;background:var(--red-dim);border:1px solid var(--border-red);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all .3s}
+.svc-card:hover .svc-icon{background:rgba(229,52,42,.2);transform:rotate(-5deg)}
+.svc-num{font-family:var(--mono);font-size:.75rem;color:var(--white3);font-weight:700}
+.svc-card h3{font-size:1.15rem;font-weight:700;margin-bottom:12px;letter-spacing:-.4px}
+.svc-card p{color:var(--white3);font-size:.88rem;line-height:1.7;margin-bottom:20px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.svc-tag{font-family:var(--mono);font-size:.65rem;background:var(--white4);color:var(--white3);padding:4px 10px;border-radius:4px;letter-spacing:.5px}
+/* TECH STACK */
+.stack-section{background:var(--bg)}
+.stack-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);margin-top:64px}
+.stack-item{background:var(--bg2);padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .3s;cursor:default}
+.stack-item:hover{background:var(--bg3)}
+.stack-logo{font-size:2rem;line-height:1}
+.stack-name{font-family:var(--mono);font-size:.7rem;color:var(--white3);letter-spacing:1px;text-align:center}
+.stack-item.featured{border:1px solid var(--border-red);background:var(--red-dim)}
+.stack-item.featured .stack-name{color:var(--red2)}
 /* PROCESS */
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;position:relative}
-.process-steps::before{content:"";position:absolute;top:40px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:0}
-.process-step{text-align:center;position:relative;z-index:1}
-.step-num{width:80px;height:80px;background:var(--black);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-size:1.5rem;font-weight:800;color:var(--gold);margin:0 auto 24px}
-.step-title{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
-.step-desc{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.6;padding:0 20px}
+.process-section{background:var(--bg2)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:64px}
+.process-step{background:var(--bg2);padding:40px;position:relative;transition:all .3s}
+.process-step:hover{background:var(--bg3)}
+.process-num{font-family:var(--mono);font-size:.7rem;color:var(--red);font-weight:700;letter-spacing:2px;margin-bottom:20px}
+.process-step h3{font-size:1.1rem;font-weight:700;margin-bottom:12px;letter-spacing:-.3px}
+.process-step p{color:var(--white3);font-size:.88rem;line-height:1.7}
+.process-connector{position:absolute;top:40px;right:-1px;width:1px;height:40px;background:var(--red);opacity:.5;z-index:1}
+/* PORTFOLIO */
+.work-section{background:var(--bg)}
+.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--border)}
+.work-item{position:relative;overflow:hidden;cursor:pointer;background:var(--bg2)}
+.work-item:nth-child(1){grid-column:span 8;aspect-ratio:16/8}
+.work-item:nth-child(2){grid-column:span 4;aspect-ratio:4/4}
+.work-item:nth-child(3){grid-column:span 4;aspect-ratio:4/4}
+.work-item:nth-child(4){grid-column:span 5;aspect-ratio:5/4}
+.work-item:nth-child(5){grid-column:span 3;aspect-ratio:3/4}
+.work-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;transition:transform .6s ease}
+.work-item:hover .work-bg{transform:scale(1.05)}
+.work-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.95) 0%,rgba(8,8,8,.2) 50%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;opacity:0;transition:opacity .4s}
+.work-item:hover .work-overlay{opacity:1}
+.work-type{font-family:var(--mono);font-size:.65rem;color:var(--red2);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.work-name{font-size:1.1rem;font-weight:700;letter-spacing:-.4px}
+.w1{background:linear-gradient(135deg,#0d1117,#1a1a2e)}
+.w2{background:linear-gradient(135deg,#1a0a0a,#2d0a0a)}
+.w3{background:linear-gradient(135deg,#0a1a0a,#0d2d1a)}
+.w4{background:linear-gradient(135deg,#0a0a1a,#1a0d2d)}
+.w5{background:linear-gradient(135deg,#1a0d0a,#2d1a0a)}
 /* TESTIMONIALS */
-.testimonials{background:var(--dark-gray)}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.testimonial-card{background:var(--black);border:1px solid rgba(212,168,67,.15);border-radius:20px;padding:36px;transition:all .3s}
-.testimonial-card:hover{border-color:rgba(212,168,67,.4);transform:translateY(-4px)}
-.testimonial-stars{color:var(--gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
-.testimonial-text{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.8;margin-bottom:24px;font-style:italic}
-.testimonial-author{display:flex;align-items:center;gap:14px}
-.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--black);font-size:1.1rem}
-.author-name{font-weight:600;font-size:.95rem}
-.author-role{color:rgba(255,255,255,.4);font-size:.8rem}
-/* CTA SECTION */
-.cta-section{background:linear-gradient(135deg,rgba(212,168,67,.15) 0%,transparent 50%),var(--dark-gray);text-align:center;border-top:1px solid rgba(212,168,67,.2);border-bottom:1px solid rgba(212,168,67,.2)}
-.cta-section h2{font-family:"Syne",sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-2px;margin-bottom:20px}
-.cta-section p{color:rgba(255,255,255,.6);font-size:1.1rem;margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto}
-.cta-actions{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.testimonials-section{background:var(--bg2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:64px}
+.testi-card{background:var(--bg2);padding:40px;transition:all .3s}
+.testi-card:hover{background:var(--bg3)}
+.testi-stars{display:flex;gap:4px;margin-bottom:20px}
+.star{color:var(--red);font-size:.9rem}
+.testi-quote{font-size:1rem;line-height:1.8;color:var(--white2);margin-bottom:28px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:14px;border-top:1px solid var(--border);padding-top:20px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0;font-family:var(--mono)}
+.testi-name{font-weight:600;font-size:.92rem;margin-bottom:2px}
+.testi-role{font-size:.78rem;color:var(--white3)}
+/* CTA */
+.cta-section{background:var(--bg);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;left:50%;top:0;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,var(--red-dim),transparent 70%);pointer-events:none}
+.cta-section h2{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:-2px;margin-bottom:20px;position:relative;z-index:1}
+.cta-section h2 span{color:var(--red)}
+.cta-section p{color:var(--white2);font-size:1.05rem;max-width:480px;margin:0 auto 48px;line-height:1.75;position:relative;z-index:1}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
 /* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px}
-.contact-form{background:var(--dark-gray);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:48px}
-.form-group{margin-bottom:24px}
-.form-group label{display:block;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;margin-bottom:8px;letter-spacing:.5px}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px;color:var(--white);font-family:"Inter",sans-serif;font-size:.95rem;transition:all .3s;outline:none}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(212,168,67,.05)}
-.form-group textarea{height:120px;resize:vertical}
-.form-group select option{background:var(--dark-gray)}
-.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:16px;border-radius:12px;font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all .3s;letter-spacing:.5px}
-.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,.4)}
-.contact-info{padding-top:20px}
-.contact-info h3{font-family:"Syne",sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:16px}
-.contact-info p{color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:40px}
-.contact-items{display:flex;flex-direction:column;gap:24px}
-.contact-item{display:flex;align-items:center;gap:20px}
-.contact-icon{width:52px;height:52px;background:rgba(212,168,67,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.contact-item-text strong{display:block;font-weight:600;margin-bottom:2px}
-.contact-item-text span{color:rgba(255,255,255,.5);font-size:.9rem}
+.contact-section{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:64px}
+.contact-form-wrap{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:48px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.form-grp{margin-bottom:20px}
+.form-grp label{display:block;font-family:var(--mono);font-size:.68rem;color:var(--white3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.form-grp input,.form-grp textarea,.form-grp select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:13px 16px;color:var(--white);font-family:var(--sans);font-size:.9rem;transition:all .3s;outline:none}
+.form-grp input:focus,.form-grp textarea:focus,.form-grp select:focus{border-color:var(--red);background:var(--bg3)}
+.form-grp textarea{height:110px;resize:vertical}
+.form-grp select option{background:var(--bg2)}
+.form-submit{width:100%;background:var(--red);color:#fff;border:none;padding:15px;border-radius:8px;font-family:var(--sans);font-weight:700;font-size:.95rem;cursor:pointer;transition:all .3s;letter-spacing:.3px}
+.form-submit:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 12px 32px var(--red-glow)}
+.contact-info h3{font-size:1.8rem;font-weight:700;letter-spacing:-1px;margin-bottom:16px}
+.contact-info>p{color:var(--white2);font-size:.95rem;line-height:1.8;margin-bottom:40px}
+.contact-items{display:flex;flex-direction:column;gap:0}
+.c-item{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
+.c-icon{width:44px;height:44px;background:var(--red-dim);border:1px solid var(--border-red);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.c-item strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:2px}
+.c-item span{font-size:.82rem;color:var(--white3)}
+.contact-partners{margin-top:40px;padding:24px;background:var(--bg);border:1px solid var(--border);border-radius:10px}
+.contact-partners h4{font-family:var(--mono);font-size:.68rem;color:var(--white3);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.partner-badges{display:flex;gap:12px;flex-wrap:wrap}
+.partner-badge{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-size:.75rem;font-weight:600;color:var(--white2);display:flex;align-items:center;gap:6px}
 /* FOOTER */
-footer{background:var(--dark-gray);border-top:1px solid rgba(212,168,67,.15);padding:80px 60px 40px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
-.footer-brand .nav-logo{font-size:1.6rem;display:inline-block;margin-bottom:16px}
-.footer-brand p{color:rgba(255,255,255,.4);font-size:.9rem;line-height:1.8;max-width:280px;margin-bottom:24px}
-.social-links{display:flex;gap:12px}
-.social-link{width:40px;height:40px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;transition:all .3s}
-.social-link:hover{background:rgba(212,168,67,.2);border-color:var(--gold)}
-.footer-col h4{font-family:"Syne",sans-serif;font-weight:700;margin-bottom:20px;color:var(--white)}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
-.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.9rem;transition:color .3s}
-.footer-links a:hover{color:var(--gold)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{color:rgba(255,255,255,.3);font-size:.85rem}
-/* CURSOR */
-.cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:difference}
-.cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(212,168,67,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:64px 64px 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:48px}
+.footer-brand .logo{margin-bottom:16px;display:inline-flex}
+.footer-brand p{color:var(--white3);font-size:.88rem;line-height:1.8;margin-bottom:24px;max-width:280px}
+.footer-social{display:flex;gap:10px}
+.f-social{width:36px;height:36px;background:var(--white4);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;text-decoration:none;transition:all .3s}
+.f-social:hover{background:var(--red-dim);border-color:var(--border-red)}
+.footer-col h4{font-family:var(--mono);font-size:.68rem;color:var(--white3);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:var(--white3);text-decoration:none;font-size:.88rem;transition:color .3s}
+.footer-links a:hover{color:var(--red)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:var(--white3);font-size:.82rem;font-family:var(--mono)}
+.footer-bottom a{color:var(--red);text-decoration:none}
 /* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal{opacity:0;transform:translateY(32px);transition:all .7s cubic-bezier(.25,.46,.45,.94)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-/* MOBILE */
-@media(max-width:768px){nav{padding:20px 24px}nav.scrolled{padding:14px 24px}.nav-links,.nav-cta{display:none}.hero{padding:0 24px}.hero-stats{display:none}section{padding:80px 24px}.about-grid,.services-grid,.portfolio-header,.contact-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.portfolio-item:nth-child(n){grid-column:span 12}.footer-grid{grid-template-columns:1fr 1fr}.process-steps{grid-template-columns:1fr 1fr;gap:40px}.process-steps::before{display:none}.footer-bottom{flex-direction:column;gap:16px;text-align:center}}
+.reveal-l{opacity:0;transform:translateX(-32px);transition:all .7s cubic-bezier(.25,.46,.45,.94)}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+@media(max-width:900px){nav{padding:18px 24px}.nav-center,.nav-badge{display:none}.hero{padding:100px 24px 60px}.hero-right{display:none}.hero-stats{flex-direction:column;gap:20px}.hero-stat{border:none;border-bottom:1px solid var(--border);padding:0 0 20px}section{padding:80px 24px}.spec-cards,.services-grid,.work-grid,.testi-grid,.footer-top{grid-template-columns:1fr}.spec-header{grid-template-columns:1fr}.spec-featured{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.work-item:nth-child(n){grid-column:span 12}.stack-grid{grid-template-columns:repeat(3,1fr)}.process-grid{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
 </style>
 </head>
 <body>
-<div class="cursor"></div>
-<div class="cursor-ring"></div>
-<nav id="navbar">
-  <a href="#" class="nav-logo">Pantoja<span>&</span>Co</a>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#servicos">Servicos</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#processo">Processo</a></li>
-    <li><a href="#contato">Contato</a></li>
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-mark">P&amp;</div>
+    <div class="logo-text">Pantoja<span>&amp;</span>Co</div>
+  </a>
+  <ul class="nav-center">
+    <li><a href="#specialisms">SaaS &amp; eCommerce</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#stack">Technology</a></li>
+    <li><a href="#work">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contato" class="nav-cta">Falar Conosco</a>
-</nav>
-<section class="hero" id="inicio">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Agencia Criativa Premium</div>
-    <h1>
-      <span class="line">Criamos marcas</span>
-      <span class="line">que <span class="accent">dominam</span></span>
-      <span class="line">o mercado.</span>
-    </h1>
-    <p class="hero-desc">Somos especialistas em transformar ideias ousadas em experiencias digitais memoraveis. Design, estrategia e resultados que elevam o seu negocio.</p>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn-primary">Ver Nosso Trabalho <span>&#8594;</span></a>
-      <a href="#contato" class="btn-secondary">Iniciar Projeto</a>
-    </div>
+  <div class="nav-right">
+    <div class="nav-badge">Sydney, AU</div>
+    <a href="#contact" class="nav-cta">Start a Project</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat-item"><div class="stat-num">180+</div><div class="stat-label">Projetos</div></div>
-    <div class="stat-line"></div>
-    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Satisfacao</div></div>
-    <div class="stat-line"></div>
-    <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Anos</div></div>
+</nav>
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag">
+    <div class="hero-tag-inner"><span class="hero-tag-dot"></span>Ruby on Rails Technical Agency &mdash; Since 2008</div>
+  </div>
+  <h1 class="reveal">We build <em>SaaS</em> &amp; <em>eCommerce</em><br>platforms that scale.</h1>
+  <p class="hero-sub reveal d1">Sydney-based Ruby on Rails experts. We architect, build and grow secure digital platforms for ambitious startups and established enterprises across Australia and globally.</p>
+  <div class="hero-actions reveal d2">
+    <a href="#specialisms" class="btn-red">Explore Our Work &#8594;</a>
+    <a href="#contact" class="btn-outline">Talk to Us &#8594;</a>
+  </div>
+  <div class="hero-stats reveal d3">
+    <div class="hero-stat"><div class="stat-val">150<span>+</span></div><div class="stat-label">Projects Delivered</div></div>
+    <div class="hero-stat" style="padding-left:32px"><div class="stat-val">18<span>yrs</span></div><div class="stat-label">In Production</div></div>
+    <div class="hero-stat" style="padding-left:32px"><div class="stat-val">99<span>%</span></div><div class="stat-label">Client Retention</div></div>
+    <div class="hero-stat" style="padding-left:32px"><div class="stat-val">&#60;48<span>h</span></div><div class="stat-label">Response Time</div></div>
+  </div>
+  <div class="hero-right">
+    <div class="tech-badge tb-ruby"><div class="tech-badge-icon">&#128142;</div><div class="tech-badge-text"><strong>Ruby on Rails</strong><span>Core Framework</span></div></div>
+    <div class="tech-badge tb-react"><div class="tech-badge-icon">&#9883;</div><div class="tech-badge-text"><strong>React / Hotwire</strong><span>Frontend Layer</span></div></div>
+    <div class="tech-badge tb-stripe"><div class="tech-badge-icon">&#9889;</div><div class="tech-badge-text"><strong>Stripe Partner</strong><span>Certified Architect</span></div></div>
+    <div class="tech-badge tb-aws"><div class="tech-badge-icon">&#9729;</div><div class="tech-badge-text"><strong>AWS / Heroku</strong><span>Cloud Infrastructure</span></div></div>
+    <div class="tech-badge tb-rails"><div class="tech-badge-icon">&#128274;</div><div class="tech-badge-text"><strong>Cyber Security</strong><span>Dev Perspective</span></div></div>
   </div>
 </section>
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item">Branding <span>&#10022;</span></div>
-    <div class="marquee-item">Web Design <span>&#10022;</span></div>
-    <div class="marquee-item">Marketing Digital <span>&#10022;</span></div>
-    <div class="marquee-item">Social Media <span>&#10022;</span></div>
-    <div class="marquee-item">UX/UI Design <span>&#10022;</span></div>
-    <div class="marquee-item">SEO <span>&#10022;</span></div>
-    <div class="marquee-item">Trafego Pago <span>&#10022;</span></div>
-    <div class="marquee-item">Identidade Visual <span>&#10022;</span></div>
-    <div class="marquee-item">Branding <span>&#10022;</span></div>
-    <div class="marquee-item">Web Design <span>&#10022;</span></div>
-    <div class="marquee-item">Marketing Digital <span>&#10022;</span></div>
-    <div class="marquee-item">Social Media <span>&#10022;</span></div>
-    <div class="marquee-item">UX/UI Design <span>&#10022;</span></div>
-    <div class="marquee-item">SEO <span>&#10022;</span></div>
-    <div class="marquee-item">Trafego Pago <span>&#10022;</span></div>
-    <div class="marquee-item">Identidade Visual <span>&#10022;</span></div>
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Ruby on Rails <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">SaaS Platforms <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">eCommerce <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Stripe Integration <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">PostgreSQL <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Hotwire / Turbo <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">AWS &amp; Heroku <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">API Development <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Cyber Security <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Sydney, Australia <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Ruby on Rails <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">SaaS Platforms <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">eCommerce <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Stripe Integration <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">PostgreSQL <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Hotwire / Turbo <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">AWS &amp; Heroku <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">API Development <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Cyber Security <span class="ticker-sep">&#9632;</span></span>
+    <span class="ticker-item">Sydney, Australia <span class="ticker-sep">&#9632;</span></span>
   </div>
 </div>
-<section class="about" id="sobre">
-  <div class="section-tag">Sobre Nos</div>
-  <h2 class="section-title reveal">Somos a agencia que<br>transforma visoes em resultados</h2>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>A Pantoja & Co nasceu da paixao por criar experiencias que marcam. Ha mais de 12 anos no mercado, construimos uma reputacao solida baseada em criatividade, estrategia e entrega de resultados excepcionais.</p>
-      <p>Nossa equipe multidisciplinar combina design de vanguarda com estrategias de marketing orientadas por dados, garantindo que cada projeto nao apenas impressione visualmente, mas tambem gere impacto real nos negocios dos nossos clientes.</p>
-      <div class="about-features">
-        <div class="feature-item"><div class="feature-dot"></div>Equipe especializada em cada area</div>
-        <div class="feature-item"><div class="feature-dot"></div>Metodologia agil com entregas rapidas</div>
-        <div class="feature-item"><div class="feature-dot"></div>Foco em ROI e metricas de negocio</div>
-        <div class="feature-item"><div class="feature-dot"></div>Suporte continuo pos-projeto</div>
+<section class="spec-section" id="specialisms">
+  <div class="spec-header">
+    <div>
+      <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Our Specialisms</span></div>
+      <h2 class="sec-title reveal">Built for<br>SaaS &amp; eCommerce.</h2>
+    </div>
+    <p class="sec-desc reveal d1">Two things we do exceptionally well. We combine deep Ruby on Rails expertise with a thorough understanding of subscription businesses and online retail to build platforms that perform at scale.</p>
+  </div>
+  <div class="spec-cards">
+    <div class="spec-card reveal">
+      <div class="spec-card-tag">SaaS Platforms</div>
+      <h3>Software as a Service</h3>
+      <p>We architect multi-tenant SaaS applications with battle-tested Rails patterns. From MVP to enterprise scale — billing, user management, feature flags, analytics and everything in between.</p>
+      <ul class="spec-card-features">
+        <li>Multi-tenant architecture &amp; data isolation</li>
+        <li>Subscription billing via Stripe / Braintree</li>
+        <li>Role-based access control (RBAC)</li>
+        <li>Usage metering &amp; plan management</li>
+        <li>Onboarding flows &amp; product-led growth</li>
+        <li>Admin dashboards &amp; analytics</li>
+      </ul>
+    </div>
+    <div class="spec-card reveal d1">
+      <div class="spec-card-tag">eCommerce</div>
+      <h3>High-Performance Online Retail</h3>
+      <p>Custom eCommerce platforms built for conversion, speed and scale. Whether you need Shopify integration, a headless store or a fully bespoke solution — we deliver stores that sell.</p>
+      <ul class="spec-card-features">
+        <li>Custom Rails eCommerce builds</li>
+        <li>Shopify Plus &amp; headless commerce</li>
+        <li>Payment gateway integration</li>
+        <li>Inventory &amp; order management systems</li>
+        <li>B2B &amp; wholesale portals</li>
+        <li>Performance optimisation &amp; Core Web Vitals</li>
+      </ul>
+    </div>
+    <div class="spec-featured reveal d2">
+      <div>
+        <div class="spec-card-tag">Why Ruby on Rails</div>
+        <h3 style="font-size:2rem;margin-bottom:16px">The right tool for<br>ambitious products.</h3>
+        <p style="color:var(--white2);font-size:.95rem;line-height:1.8;margin-bottom:24px">Rails has powered GitHub, Shopify, Basecamp and Airbnb from day one. Its convention-over-configuration philosophy means faster development, fewer bugs and a codebase your team can maintain for years.</p>
+        <a href="#contact" class="btn-red">Build with Rails &#8594;</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:24px">
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--red);letter-spacing:2px;margin-bottom:8px">SPEED TO MARKET</div>
+          <div style="font-size:1.1rem;font-weight:600;margin-bottom:4px">3x faster development</div>
+          <div style="font-size:.82rem;color:var(--white3)">vs. building from scratch with other stacks</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:24px">
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--red);letter-spacing:2px;margin-bottom:8px">SECURITY</div>
+          <div style="font-size:1.1rem;font-weight:600;margin-bottom:4px">Battle-tested &amp; secure</div>
+          <div style="font-size:.82rem;color:var(--white3)">Built-in CSRF, XSS and SQL injection protection</div>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:24px">
+          <div style="font-family:var(--mono);font-size:.65rem;color:var(--red);letter-spacing:2px;margin-bottom:8px">SCALABILITY</div>
+          <div style="font-size:1.1rem;font-weight:600;margin-bottom:4px">Proven at scale</div>
+          <div style="font-size:.82rem;color:var(--white3)">Shopify processes billions in GMV on Rails daily</div>
+        </div>
       </div>
     </div>
-    <div class="about-grid-cards reveal reveal-delay-2">
-      <div class="about-card"><div class="about-card-num">01</div><div class="about-card-title">Estrategia</div><div class="about-card-text">Planejamos cada detalhe para maximizar o impacto da sua marca no mercado.</div></div>
-      <div class="about-card"><div class="about-card-num">02</div><div class="about-card-title">Criatividade</div><div class="about-card-text">Design que comunica, emociona e diferencia sua marca da concorrencia.</div></div>
-      <div class="about-card"><div class="about-card-num">03</div><div class="about-card-title">Resultado</div><div class="about-card-text">Entregamos crescimento mensuravel e ROI comprovado para nossos clientes.</div></div>
-      <div class="about-card"><div class="about-card-num">04</div><div class="about-card-title">Parceria</div><div class="about-card-text">Somos mais que uma agencia - somos parceiros estrategicos do seu sucesso.</div></div>
-    </div>
   </div>
 </section>
-<section id="servicos">
-  <div class="section-tag reveal">Nossos Servicos</div>
-  <h2 class="section-title reveal">Tudo que sua marca<br>precisa para crescer</h2>
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <div class="service-icon">&#9728;</div>
-      <h3>Branding & Identidade Visual</h3>
-      <p>Criamos identidades visuais completas que capturam a essencia da sua marca e a diferenciam no mercado de forma memoravel e consistente.</p>
-      <div class="service-tags"><span class="service-tag">Logo</span><span class="service-tag">Manual de Marca</span><span class="service-tag">Brand Voice</span></div>
-    </div>
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-icon">&#128187;</div>
-      <h3>Web Design & Desenvolvimento</h3>
-      <p>Sites e aplicacoes que combinam estetica impecavel com performance tecnica, convertendo visitantes em clientes de forma consistente.</p>
-      <div class="service-tags"><span class="service-tag">Landing Pages</span><span class="service-tag">E-commerce</span><span class="service-tag">Web App</span></div>
-    </div>
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-icon">&#128202;</div>
-      <h3>Marketing Digital & Trafego</h3>
-      <p>Estrategias de marketing integradas que geram leads qualificados e aumentam as vendas atraves de campanhas orientadas por dados.</p>
-      <div class="service-tags"><span class="service-tag">Google Ads</span><span class="service-tag">Meta Ads</span><span class="service-tag">SEO</span></div>
-    </div>
-    <div class="service-card reveal reveal-delay-1">
-      <div class="service-icon">&#128247;</div>
-      <h3>Social Media & Conteudo</h3>
-      <p>Gerenciamos e criamos conteudo estrategico para suas redes sociais, construindo comunidades engajadas e fortalecendo sua presenca digital.</p>
-      <div class="service-tags"><span class="service-tag">Instagram</span><span class="service-tag">TikTok</span><span class="service-tag">LinkedIn</span></div>
-    </div>
-    <div class="service-card reveal reveal-delay-2">
-      <div class="service-icon">&#127916;</div>
-      <h3>Producao Audiovisual</h3>
-      <p>Videos, reels e conteudo audiovisual profissional que conta a historia da sua marca de forma cativante e impactante para diferentes plataformas.</p>
-      <div class="service-tags"><span class="service-tag">Videos</span><span class="service-tag">Reels</span><span class="service-tag">Motion</span></div>
-    </div>
-    <div class="service-card reveal reveal-delay-3">
-      <div class="service-icon">&#128200;</div>
-      <h3>Consultoria Estrategica</h3>
-      <p>Analisamos seu negocio em profundidade e desenvolvemos planos estrategicos personalizados para acelerar o crescimento e a visibilidade da sua marca.</p>
-      <div class="service-tags"><span class="service-tag">Diagn. de Marca</span><span class="service-tag">Planejamento</span><span class="service-tag">KPIs</span></div>
-    </div>
-  </div>
-</section>
-<section class="portfolio" id="portfolio">
-  <div class="portfolio-header">
+<section class="services-section" id="services">
+  <div class="services-header">
     <div>
-      <div class="section-tag reveal">Nosso Portfolio</div>
-      <h2 class="section-title reveal">Trabalhos que<br>falam por si</h2>
+      <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">What We Do</span></div>
+      <h2 class="sec-title reveal">Full-stack digital<br>capabilities.</h2>
     </div>
-    <a href="#contato" class="btn-secondary reveal">Ver Todos os Cases</a>
+    <a href="#contact" class="btn-outline reveal">All Services &#8594;</a>
   </div>
-  <div class="portfolio-grid">
-    <div class="portfolio-item">
-      <div class="portfolio-bg p1">&#127775;</div>
-      <div class="portfolio-overlay"><div class="portfolio-cat">Branding + Web</div><div class="portfolio-name">Luxe Boutique Hotel</div></div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-card-top"><div class="svc-icon">&#128190;</div><div class="svc-num">01</div></div>
+      <h3>Custom Rails Development</h3>
+      <p>End-to-end Ruby on Rails applications built with clean architecture, comprehensive test suites and deployment pipelines that make shipping a joy.</p>
+      <div class="svc-tags"><span class="svc-tag">Ruby 3.x</span><span class="svc-tag">Rails 7+</span><span class="svc-tag">RSpec</span><span class="svc-tag">CI/CD</span></div>
     </div>
-    <div class="portfolio-item">
-      <div class="portfolio-bg p2">&#128640;</div>
-      <div class="portfolio-overlay"><div class="portfolio-cat">Marketing Digital</div><div class="portfolio-name">TechStart App</div></div>
+    <div class="svc-card reveal d1">
+      <div class="svc-card-top"><div class="svc-icon">&#128722;</div><div class="svc-num">02</div></div>
+      <h3>eCommerce Platforms</h3>
+      <p>Custom storefronts, Shopify Plus builds and headless commerce solutions optimised for conversion, performance and seamless operations.</p>
+      <div class="svc-tags"><span class="svc-tag">Shopify Plus</span><span class="svc-tag">Headless</span><span class="svc-tag">Solidus</span><span class="svc-tag">Spree</span></div>
     </div>
-    <div class="portfolio-item">
-      <div class="portfolio-bg p3">&#127808;</div>
-      <div class="portfolio-overlay"><div class="portfolio-cat">Identidade Visual</div><div class="portfolio-name">Organic Foods Co.</div></div>
+    <div class="svc-card reveal d2">
+      <div class="svc-card-top"><div class="svc-icon">&#9889;</div><div class="svc-num">03</div></div>
+      <h3>Stripe &amp; Payments</h3>
+      <p>As a certified Stripe architect, we implement complex billing logic — subscriptions, usage-based pricing, marketplaces and multi-currency.</p>
+      <div class="svc-tags"><span class="svc-tag">Stripe</span><span class="svc-tag">Billing</span><span class="svc-tag">Subscriptions</span><span class="svc-tag">Webhooks</span></div>
     </div>
-    <div class="portfolio-item">
-      <div class="portfolio-bg p4">&#128176;</div>
-      <div class="portfolio-overlay"><div class="portfolio-cat">E-commerce</div><div class="portfolio-name">Finance Pro</div></div>
+    <div class="svc-card reveal d1">
+      <div class="svc-card-top"><div class="svc-icon">&#128683;</div><div class="svc-num">04</div></div>
+      <h3>Security &amp; Privacy</h3>
+      <p>We review your platform from a developer perspective — identifying vulnerabilities, hardening infrastructure and ensuring GDPR/Australian Privacy Act compliance.</p>
+      <div class="svc-tags"><span class="svc-tag">Pen Testing</span><span class="svc-tag">GDPR</span><span class="svc-tag">APA</span><span class="svc-tag">2FA</span></div>
     </div>
-    <div class="portfolio-item">
-      <div class="portfolio-bg p5">&#127925;</div>
-      <div class="portfolio-overlay"><div class="portfolio-cat">Social Media</div><div class="portfolio-name">Sound Studio</div></div>
+    <div class="svc-card reveal d2">
+      <div class="svc-card-top"><div class="svc-icon">&#9729;</div><div class="svc-num">05</div></div>
+      <h3>Cloud &amp; Infrastructure</h3>
+      <p>AWS architecture, Heroku optimisation, containerisation and observability. We keep your platform fast, available and cost-efficient at any traffic level.</p>
+      <div class="svc-tags"><span class="svc-tag">AWS</span><span class="svc-tag">Heroku</span><span class="svc-tag">Docker</span><span class="svc-tag">Datadog</span></div>
     </div>
-  </div>
-</section>
-<section id="processo">
-  <div class="section-tag reveal">Nosso Processo</div>
-  <h2 class="section-title reveal">Como transformamos<br>sua ideia em realidade</h2>
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="step-num">01</div>
-      <div class="step-title">Descoberta</div>
-      <div class="step-desc">Mergulhamos no seu negocio para entender objetivos, mercado, concorrentes e oportunidades de crescimento.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-1">
-      <div class="step-num">02</div>
-      <div class="step-title">Estrategia</div>
-      <div class="step-desc">Desenvolvemos um plano de acao completo com definicao de posicionamento, personas e roadmap criativo.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="step-num">03</div>
-      <div class="step-title">Criacao</div>
-      <div class="step-desc">Nossa equipe cria solucoes visuais e estrategicas que superam expectativas e diferenciam sua marca.</div>
-    </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="step-num">04</div>
-      <div class="step-title">Lancamento</div>
-      <div class="step-desc">Implementamos, lancamos e monitoramos continuamente para garantir os melhores resultados possiveis.</div>
+    <div class="svc-card reveal d3">
+      <div class="svc-card-top"><div class="svc-icon">&#128200;</div><div class="svc-num">06</div></div>
+      <h3>Technical Advisory</h3>
+      <p>CTO-as-a-service, code audits, architecture reviews and team augmentation. We plug into your organisation and drive technical excellence from within.</p>
+      <div class="svc-tags"><span class="svc-tag">CTO-as-a-Service</span><span class="svc-tag">Code Audit</span><span class="svc-tag">Team Aug</span></div>
     </div>
   </div>
 </section>
-<section class="testimonials">
-  <div class="section-tag reveal">Depoimentos</div>
-  <h2 class="section-title reveal">O que nossos clientes<br>dizem sobre nos</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testimonial-text">"A Pantoja & Co transformou completamente a presenca digital da nossa empresa. O rebranding e o novo site aumentaram nossas conversoes em 340%. Parceria incrivel!"</p>
-      <div class="testimonial-author"><div class="author-avatar">R</div><div><div class="author-name">Ricardo Mendes</div><div class="author-role">CEO, TechVision</div></div></div>
+<section class="stack-section" id="stack">
+  <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Our Technology Stack</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <h2 class="sec-title reveal" style="max-width:500px">The stack we've mastered over 18 years.</h2>
+    <p class="sec-desc reveal d1" style="max-width:400px;margin-bottom:0">We don't jump on every new framework. We go deep on tools we trust, and deliver software that's maintainable, secure and fast.</p>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-item featured"><div class="stack-logo">&#128142;</div><div class="stack-name">Ruby on Rails</div></div>
+    <div class="stack-item featured"><div class="stack-logo">&#9889;</div><div class="stack-name">Stripe</div></div>
+    <div class="stack-item"><div class="stack-logo">&#9883;</div><div class="stack-name">React</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128293;</div><div class="stack-name">Hotwire</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128011;</div><div class="stack-name">PostgreSQL</div></div>
+    <div class="stack-item"><div class="stack-logo">&#9729;</div><div class="stack-name">AWS</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128260;</div><div class="stack-name">Redis</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128736;</div><div class="stack-name">Sidekiq</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128684;</div><div class="stack-name">Heroku</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128203;</div><div class="stack-name">RSpec</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128640;</div><div class="stack-name">Shopify</div></div>
+    <div class="stack-item"><div class="stack-logo">&#128274;</div><div class="stack-name">Devise / Auth</div></div>
+  </div>
+</section>
+<section class="process-section" id="process">
+  <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">How We Work</span></div>
+  <h2 class="sec-title reveal">From brief to<br>production in weeks.</h2>
+  <div class="process-grid">
+    <div class="process-step reveal"><div class="process-num">STEP 01</div><h3>Discovery &amp; Architecture</h3><p>We immerse in your domain. Requirements, user research, competitive analysis and a technical architecture that sets your project up for long-term success.</p></div>
+    <div class="process-step reveal d1"><div class="process-num">STEP 02</div><h3>Design &amp; Prototype</h3><p>UI/UX design grounded in your users' needs. Interactive prototypes validated with real feedback before a single line of production code is written.</p></div>
+    <div class="process-step reveal d2"><div class="process-num">STEP 03</div><h3>Build &amp; Test</h3><p>Agile sprints with two-week cycles, continuous integration and comprehensive RSpec test suites. You see progress every fortnight.</p></div>
+    <div class="process-step reveal d3"><div class="process-num">STEP 04</div><h3>Launch &amp; Scale</h3><p>Zero-downtime deployments, performance monitoring, security hardening and ongoing iteration. We stay with you long after launch.</p></div>
+  </div>
+</section>
+<section class="work-section" id="work">
+  <div class="work-header">
+    <div>
+      <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Selected Work</span></div>
+      <h2 class="sec-title reveal">Platforms we've<br>built &amp; shipped.</h2>
     </div>
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testimonial-text">"Contratamos a agencia para uma campanha de marketing digital e os resultados superaram todas as expectativas. ROAS de 8x no primeiro mes. Equipe comprometida e criativa."</p>
-      <div class="testimonial-author"><div class="author-avatar">A</div><div><div class="author-name">Ana Paula Costa</div><div class="author-role">Diretora de Marketing, Natura Style</div></div></div>
+    <a href="#contact" class="btn-outline reveal">View All Cases &#8594;</a>
+  </div>
+  <div class="work-grid">
+    <div class="work-item"><div class="work-bg w1">&#127968;</div><div class="work-overlay"><div class="work-type">SaaS Platform</div><div class="work-name">PropTrack — Property Intelligence Platform</div></div></div>
+    <div class="work-item"><div class="work-bg w2">&#128722;</div><div class="work-overlay"><div class="work-type">eCommerce</div><div class="work-name">Kimberly-Clark ANZ Store</div></div></div>
+    <div class="work-item"><div class="work-bg w3">&#127981;</div><div class="work-overlay"><div class="work-type">SaaS + eCommerce</div><div class="work-name">Endeavour Learning Platform</div></div></div>
+    <div class="work-item"><div class="work-bg w4">&#128200;</div><div class="work-overlay"><div class="work-type">SaaS Dashboard</div><div class="work-name">Managed.app Analytics</div></div></div>
+    <div class="work-item"><div class="work-bg w5">&#9993;</div><div class="work-overlay"><div class="work-type">Email Marketing SaaS</div><div class="work-name">CampaignXpress</div></div></div>
+  </div>
+</section>
+<section class="testimonials-section">
+  <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Client Voices</span></div>
+  <h2 class="sec-title reveal">What our clients say.</h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="testi-quote">"Pantoja &amp; Co rebuilt our entire eCommerce platform on Rails. The new platform handles 10x the traffic of our legacy system and conversion rates improved by 47%. Their team understood our business deeply."</p>
+      <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah Mitchum</div><div class="testi-role">CTO, RetailCore Australia</div></div></div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="testimonial-text">"O trabalho de branding foi absolutamente excepcional. Nossa identidade visual agora reflete perfeitamente os valores da marca. Recomendo sem hesitar!"</p>
-      <div class="testimonial-author"><div class="author-avatar">M</div><div><div class="author-name">Marcos Oliveira</div><div class="author-role">Fundador, Artisano Foods</div></div></div>
+    <div class="testi-card reveal d1">
+      <div class="testi-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="testi-quote">"We hired them to build our SaaS MVP. 12 weeks later we had a production-ready multi-tenant platform with Stripe billing, onboarding flows and an admin dashboard. Now we have 800+ paying customers."</p>
+      <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">James Okafor</div><div class="testi-role">Founder &amp; CEO, Trackify SaaS</div></div></div>
+    </div>
+    <div class="testi-card reveal d2">
+      <div class="testi-stars"><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span></div>
+      <p class="testi-quote">"Their security audit uncovered 14 critical vulnerabilities in our Rails app that we had no idea about. The remediation was thorough and professional. I sleep much better now knowing our customer data is safe."</p>
+      <div class="testi-author"><div class="testi-avatar">L</div><div><div class="testi-name">Lena Kowalski</div><div class="testi-role">VP Engineering, FinPay Tech</div></div></div>
     </div>
   </div>
 </section>
 <section class="cta-section">
-  <div class="section-tag reveal" style="justify-content:center">Pronto para comecar?</div>
-  <h2 class="reveal">Sua marca merece<br><span style="color:var(--gold)">o melhor</span></h2>
-  <p class="reveal">Vamos conversar sobre como podemos transformar sua marca e acelerar o crescimento do seu negocio.</p>
-  <div class="cta-actions reveal">
-    <a href="#contato" class="btn-primary">Solicitar Proposta <span>&#8594;</span></a>
-    <a href="https://wa.me/5511999999999" class="btn-secondary">&#128172; WhatsApp</a>
+  <div class="cta-glow"></div>
+  <div class="sec-eyebrow reveal" style="justify-content:center"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Ready to Build?</span></div>
+  <h2 class="reveal">Let's ship something<br><span>extraordinary.</span></h2>
+  <p class="reveal d1">Whether you're a startup looking to launch fast or an enterprise needing to modernise a legacy platform — we have the experience to deliver.</p>
+  <div class="cta-btns reveal d2">
+    <a href="#contact" class="btn-red">Start a Project &#8594;</a>
+    <a href="#work" class="btn-outline">See Our Work</a>
   </div>
 </section>
-<section id="contato">
-  <div class="section-tag reveal">Contato</div>
-  <h2 class="section-title reveal">Vamos criar algo<br>incrivel juntos</h2>
+<section class="contact-section" id="contact">
+  <div class="sec-eyebrow reveal"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text">Get In Touch</span></div>
+  <h2 class="sec-title reveal">Let's talk about<br>your project.</h2>
   <div class="contact-grid">
-    <div class="contact-form reveal">
-      <h3 style="font-family:Syne,sans-serif;font-size:1.5rem;margin-bottom:32px">Envie uma mensagem</h3>
-      <div class="form-group"><label>Nome Completo</label><input type="text" placeholder="Seu nome"></div>
-      <div class="form-group"><label>Email</label><input type="email" placeholder="email@empresa.com"></div>
-      <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nome da sua empresa"></div>
-      <div class="form-group"><label>Servico de Interesse</label><select><option>Selecione um servico</option><option>Branding & Identidade Visual</option><option>Web Design & Desenvolvimento</option><option>Marketing Digital</option><option>Social Media</option><option>Producao Audiovisual</option><option>Consultoria Estrategica</option></select></div>
-      <div class="form-group"><label>Mensagem</label><textarea placeholder="Conte-nos sobre seu projeto..."></textarea></div>
-      <button class="form-submit">Enviar Mensagem &#8594;</button>
+    <div class="contact-form-wrap reveal">
+      <div class="form-row">
+        <div class="form-grp"><label>First Name</label><input type="text" placeholder="Jane"></div>
+        <div class="form-grp"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      </div>
+      <div class="form-grp"><label>Work Email</label><input type="email" placeholder="jane@company.com"></div>
+      <div class="form-grp"><label>Company / Project</label><input type="text" placeholder="Acme Corp"></div>
+      <div class="form-grp"><label>I need help with</label><select><option>Select a service</option><option>SaaS Platform Development</option><option>eCommerce Platform</option><option>Ruby on Rails Development</option><option>Stripe &amp; Payments Integration</option><option>Security Audit</option><option>Technical Advisory / CTO</option><option>Legacy Rails Upgrade</option></select></div>
+      <div class="form-grp"><label>Project Brief</label><textarea placeholder="Tell us about your project, timeline and budget..."></textarea></div>
+      <button class="form-submit" id="submitBtn">Send Message &#8594;</button>
     </div>
-    <div class="contact-info reveal reveal-delay-2">
-      <h3>Fale com nossa equipe</h3>
-      <p>Estamos prontos para ouvir sobre seu projeto e apresentar as melhores solucoes para o crescimento da sua marca.</p>
+    <div class="contact-info reveal d1">
+      <h3>Based in Sydney.<br>Working globally.</h3>
+      <p>We work with clients across Australia, the US, UK and Southeast Asia. Remote-first, but always available for on-site workshops when needed.</p>
       <div class="contact-items">
-        <div class="contact-item"><div class="contact-icon">&#128205;</div><div class="contact-item-text"><strong>Sao Paulo, SP</strong><span>Av. Paulista, 1578 - Bela Vista</span></div></div>
-        <div class="contact-item"><div class="contact-icon">&#128222;</div><div class="contact-item-text"><strong>(11) 9 9999-8888</strong><span>Seg. a Sex, 9h - 18h</span></div></div>
-        <div class="contact-item"><div class="contact-icon">&#128140;</div><div class="contact-item-text"><strong>contato@pantojaeco.com</strong><span>Respondemos em ate 24h</span></div></div>
-        <div class="contact-item"><div class="contact-icon">&#128172;</div><div class="contact-item-text"><strong>WhatsApp</strong><span>Atendimento rapido via chat</span></div></div>
+        <div class="c-item"><div class="c-icon">&#128205;</div><div><strong>Sydney, NSW 2000</strong><span>Level 12, 1 Market Street, Sydney</span></div></div>
+        <div class="c-item"><div class="c-icon">&#128222;</div><div><strong>+61 2 9000 0000</strong><span>Mon &ndash; Fri, 9am &ndash; 6pm AEST</span></div></div>
+        <div class="c-item"><div class="c-icon">&#128140;</div><div><strong>hello@pantojaeco.com.au</strong><span>We reply within 24 hours</span></div></div>
+      </div>
+      <div class="contact-partners">
+        <h4>Certified Partners &amp; Technologies</h4>
+        <div class="partner-badges">
+          <div class="partner-badge">&#9889; Stripe Partner</div>
+          <div class="partner-badge">&#9729; AWS Certified</div>
+          <div class="partner-badge">&#128142; Rails Expert</div>
+          <div class="partner-badge">&#128640; Shopify Plus</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <footer>
-  <div class="footer-grid">
+  <div class="footer-top">
     <div class="footer-brand">
-      <div class="nav-logo">Pantoja<span style="color:var(--gold)">&</span>Co</div>
-      <p>Criamos experiencias digitais que transformam marcas em referencias de mercado. Criatividade, estrategia e resultados.</p>
-      <div class="social-links">
-        <a href="#" class="social-link">&#9993;</a>
-        <a href="#" class="social-link">&#128247;</a>
-        <a href="#" class="social-link">&#128101;</a>
-        <a href="#" class="social-link">&#127909;</a>
-      </div>
+      <a href="#" class="logo"><div class="logo-mark">P&amp;</div><div class="logo-text">Pantoja<span>&amp;</span>Co</div></a>
+      <p>Sydney's leading Ruby on Rails technical agency. Specialising in SaaS platforms and eCommerce since 2008.</p>
     </div>
-    <div class="footer-col"><h4>Servicos</h4><ul class="footer-links"><li><a href="#">Branding</a></li><li><a href="#">Web Design</a></li><li><a href="#">Marketing Digital</a></li><li><a href="#">Social Media</a></li><li><a href="#">Audiovisual</a></li></ul></div>
-    <div class="footer-col"><h4>Empresa</h4><ul class="footer-links"><li><a href="#">Sobre Nos</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="#">Carreiras</a></li><li><a href="#">Contato</a></li></ul></div>
-    <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="#">Politica de Privacidade</a></li><li><a href="#">Termos de Uso</a></li><li><a href="#">Cookies</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="#">Rails Development</a></li><li><a href="#">SaaS Platforms</a></li><li><a href="#">eCommerce</a></li><li><a href="#">Stripe Integration</a></li><li><a href="#">Security Audits</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="#">About Us</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Technology</h4><ul class="footer-links"><li><a href="#">Ruby on Rails</a></li><li><a href="#">React &amp; Hotwire</a></li><li><a href="#">Stripe</a></li><li><a href="#">AWS &amp; Heroku</a></li><li><a href="#">PostgreSQL</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <p>&#169; 2026 Pantoja & Co. Todos os direitos reservados.</p>
-    <p>Feito com &#10084; no Brasil</p>
+    <p>&copy; 2026 Pantoja &amp; Co. All rights reserved. ABN 00 000 000 000</p>
+    <p>Made with love in Sydney, Australia</p>
   </div>
 </footer>
 <script>
-// Cursor
-const cursor = document.querySelector('.cursor');
-const cursorRing = document.querySelector('.cursor-ring');
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  cursorRing.style.left = e.clientX + 'px';
-  cursorRing.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a,button,.service-card,.portfolio-item').forEach(el => {
-  el.addEventListener('mouseenter', () => cursorRing.style.transform = 'translate(-50%,-50%) scale(2)');
-  el.addEventListener('mouseleave', () => cursorRing.style.transform = 'translate(-50%,-50%) scale(1)');
-});
-// Navbar
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
-// Reveal animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-// Form
-document.querySelector('.form-submit').addEventListener('click', function(e) {
-  e.preventDefault();
-  this.textContent = 'Mensagem Enviada! ✓';
-  this.style.background = '#27ae60';
-  setTimeout(() => { this.textContent = 'Enviar Mensagem →'; this.style.background = ''; }, 3000);
-});
+const nav=document.getElementById("nav"); window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>60)); const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.1}); document.querySelectorAll(".reveal,.reveal-l").forEach(el=>obs.observe(el)); const btn=document.getElementById("submitBtn"); if(btn)btn.addEventListener("click",function(e){e.preventDefault();this.textContent="Sent! We will be in touch.";this.style.background="#16a34a";setTimeout(()=>{this.textContent="Send Message";this.style.background=""},4000);});
 </script>
 </body>
 </html>
