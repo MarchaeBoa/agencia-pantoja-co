@@ -287,6 +287,29 @@ footer{padding:56px 48px;border-top:1px solid var(--border);background:var(--bg)
   .footer-inner{flex-direction:column}
   .gif-item{width:160px;height:100px}
 }
+
+/* METRICS SECTION */
+.metrics-sec{background:var(--bg2)}
+.metrics-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;max-width:1260px;margin:0 auto}
+.metric-big{position:relative;border-radius:var(--radius2);overflow:hidden;height:420px}
+.metric-big img{width:100%;height:100%;object-fit:cover;display:block}
+.metric-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,.95) 0%,rgba(8,8,16,.4) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.metric-tag{font-size:11px;font-weight:800;color:var(--v2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.metric-nums{display:flex;gap:28px}
+.mn-item{display:flex;flex-direction:column;gap:4px}
+.mn-val{font-family:var(--display);font-size:36px;font-weight:800;color:var(--white);line-height:1}
+.mn-val.green{color:var(--g)}
+.mn-val.blue{color:var(--c)}
+.mn-lbl{font-size:12px;color:rgba(255,255,255,.6)}
+.metric-small-col{display:flex;flex-direction:column;gap:20px}
+.metric-small{position:relative;border-radius:var(--radius2);overflow:hidden;height:196px;flex:1}
+.metric-small img{width:100%;height:100%;object-fit:cover;display:block}
+.metric-small-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,.9),transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:20px;gap:4px}
+@media(max-width:960px){
+  .metrics-grid{grid-template-columns:1fr}
+  .metric-big{height:280px}
+  .metric-small{height:160px}
+}
 </style>
 </head>
 <body>
@@ -314,12 +337,7 @@ footer{padding:56px 48px;border-top:1px solid var(--border);background:var(--bg)
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <!-- Video background -->
-  <div class="hero-video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-    </video>
-  </div>
+  <!-- Animated particle bg via CSS -->
   <!-- Globe overlay -->
   <div class="hero-globe-bg"></div>
   <div class="hero-overlay"></div>
@@ -543,22 +561,35 @@ footer{padding:56px 48px;border-top:1px solid var(--border);background:var(--bg)
   </div>
 </section>
 
-<!-- VIDEO SECTION -->
-<section class="video-section">
+<!-- METRICS ANIMATED SECTION -->
+<section class="metrics-sec">
   <div class="inner">
     <div class="s-head" style="text-align:center;max-width:600px;margin:0 auto 48px">
-      <div class="s-tag">Em movimento</div>
-      <h2 class="s-title">Veja como <span class="gc">escalamos operacoes</span></h2>
-      <p class="s-sub" style="margin:0 auto">Performance digital em acao — do primeiro clique ao cliente convertido.</p>
+      <div class="s-tag">Resultados comprovados</div>
+      <h2 class="s-title">Numeros que <span class="gc">falam por si</span></h2>
+      <p class="s-sub" style="margin:0 auto">Performance real — com dados, processo e estrategia aplicada em mais de 1.000 operacoes.</p>
     </div>
-    <div class="video-wrap">
-      <video autoplay muted loop playsinline style="border-radius:24px">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-man-typing-on-a-laptop-1218-large.mp4" type="video/mp4">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-business-team-discussing-ideas-in-a-meeting-room-4841-large.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay-text">
-        <h3>Campanhas que geram resultados reais</h3>
-        <p>Mais de 1.000 operacoes validadas em e-commerce e SaaS</p>
+    <div class="metrics-grid">
+      <div class="metric-big">
+        <div class="metric-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=85&auto=format&fit=crop" alt="dashboard analytics"/></div>
+        <div class="metric-overlay">
+          <div class="metric-tag">SAAS DASHBOARD</div>
+          <div class="metric-nums">
+            <div class="mn-item"><span class="mn-val green">+127%</span><span class="mn-lbl">Conversao</span></div>
+            <div class="mn-item"><span class="mn-val blue">-38%</span><span class="mn-lbl">CAC</span></div>
+            <div class="mn-item"><span class="mn-val">5.8x</span><span class="mn-lbl">ROAS</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="metric-small-col">
+        <div class="metric-small">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop" alt="analytics"/>
+          <div class="metric-small-overlay"><span class="mn-val green" style="font-size:28px">+93%</span><span class="mn-lbl">Retencao de contratos</span></div>
+        </div>
+        <div class="metric-small">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&q=80&auto=format&fit=crop" alt="charts"/>
+          <div class="metric-small-overlay"><span class="mn-val" style="font-size:28px;color:var(--v2)">+1.000</span><span class="mn-lbl">Operacoes validadas</span></div>
+        </div>
       </div>
     </div>
   </div>
