@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pantoja & Co — Agência de E-commerce e SaaS</title>
+<title>Pantoja & Co â AgÃªncia de E-commerce e SaaS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
   --text:#e2e2ef;
   --display:'Sora',sans-serif;--body:'Plus Jakarta Sans',sans-serif;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;border-radius:12px}
@@ -56,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:70px;d
 .btn-ghost:hover{border-color:var(--v2);color:var(--v2)}
 .hero-tags{display:flex;gap:10px;flex-wrap:wrap}
 .hero-tag{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray);font-weight:500}
-.hero-tag::before{content:'✓';color:var(--g);font-weight:700}
+.hero-tag::before{content:'â';color:var(--g);font-weight:700}
 
 /* HERO VISUAL */
 .hero-visual{position:relative}
@@ -219,8 +219,8 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   .section-title{font-size:28px}
   .cta-box{padding:40px 24px}
   .cta-box h2{font-size:28px}
-  .office-content{left:24px;right:24px;max-width:100%}
-  .office-img-wrap{height:400px}
+  .office-content{position:relative;top:auto;transform:none;left:0;right:0;max-width:100%;padding:32px 24px;background:linear-gradient(to top,rgba(10,10,15,1) 0%,rgba(10,10,15,.9) 100%)}
+  .office-img-wrap{height:260px}
   .office-metrics{gap:20px}
   .footer-inner{flex-direction:column;text-align:center}
 }
@@ -241,7 +241,7 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
       <span class="logo-text">Pantoja <em>&</em> Co</span>
     </a>
     <div class="nav-links">
-      <a href="#services">Serviços</a>
+      <a href="#services">ServiÃ§os</a>
       <a href="#process">Processo</a>
       <a href="#cases">Resultados</a>
       <a href="#testimonials">Depoimentos</a>
@@ -260,8 +260,8 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="hero-badge">Especialistas em E-commerce &amp; SaaS</div>
-      <h1>Crescimento <em>previsível</em> para e-commerces e SaaS que querem escalar com segurança.</h1>
-      <p class="hero-sub">Unimos mídia paga, CRO, funis, dados e automação para transformar tráfego em receita real.</p>
+      <h1>Crescimento <em>previsÃ­vel</em> para e-commerces e SaaS que querem escalar com seguranÃ§a.</h1>
+      <p class="hero-sub">Unimos mÃ­dia paga, CRO, funis, dados e automaÃ§Ã£o para transformar trÃ¡fego em receita real.</p>
       <div class="hero-ctas">
         <a href="#cta" class="btn-primary">Quero escalar agora</a>
         <a href="#process" class="btn-ghost">Como funciona</a>
@@ -269,22 +269,22 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
       <div class="hero-tags">
         <span class="hero-tag">+1000 clientes atendidos</span>
         <span class="hero-tag">Especialistas em E-commerce e SaaS</span>
-        <span class="hero-tag">Performance com estratégia, não achismo</span>
+        <span class="hero-tag">Performance com estratÃ©gia, nÃ£o achismo</span>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-img-wrap">
-        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=85&auto=format&fit=crop" alt="Equipe estratégica em reunião"/>
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=85&auto=format&fit=crop" alt="Equipe estratÃ©gica em reuniÃ£o"/>
       </div>
       <div class="float-card fc1">
-        <div class="fc-label">ROAS médio</div>
-        <div class="fc-value">5.8×</div>
-        <div class="fc-sub">nos últimos 6 meses</div>
+        <div class="fc-label">ROAS mÃ©dio</div>
+        <div class="fc-value">5.8Ã</div>
+        <div class="fc-sub">nos Ãºltimos 6 meses</div>
       </div>
       <div class="float-card fc2">
-        <div class="fc-label">Redução de CAC</div>
+        <div class="fc-label">ReduÃ§Ã£o de CAC</div>
         <div class="fc-value">-38%</div>
-        <div class="fc-sub">média dos clientes</div>
+        <div class="fc-sub">mÃ©dia dos clientes</div>
       </div>
     </div>
   </div>
@@ -299,9 +299,9 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
     <span class="marquee-item">CRO</span><span class="marquee-sep"></span>
     <span class="marquee-item">FUNIL DE VENDAS</span><span class="marquee-sep"></span>
     <span class="marquee-item green">GROWTH MARKETING</span><span class="marquee-sep"></span>
-    <span class="marquee-item">AUTOMAÇÃO</span><span class="marquee-sep"></span>
-    <span class="marquee-item violet">AQUISIÇÃO</span><span class="marquee-sep"></span>
-    <span class="marquee-item">RETENÇÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item">AUTOMAÃÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item violet">AQUISIÃÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item">RETENÃÃO</span><span class="marquee-sep"></span>
     <span class="marquee-item">LANDING PAGES</span><span class="marquee-sep"></span>
     <span class="marquee-item">PERFORMANCE</span><span class="marquee-sep"></span>
     <span class="marquee-item green">ESCALA</span><span class="marquee-sep"></span>
@@ -312,9 +312,9 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
     <span class="marquee-item">CRO</span><span class="marquee-sep"></span>
     <span class="marquee-item">FUNIL DE VENDAS</span><span class="marquee-sep"></span>
     <span class="marquee-item green">GROWTH MARKETING</span><span class="marquee-sep"></span>
-    <span class="marquee-item">AUTOMAÇÃO</span><span class="marquee-sep"></span>
-    <span class="marquee-item violet">AQUISIÇÃO</span><span class="marquee-sep"></span>
-    <span class="marquee-item">RETENÇÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item">AUTOMAÃÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item violet">AQUISIÃÃO</span><span class="marquee-sep"></span>
+    <span class="marquee-item">RETENÃÃO</span><span class="marquee-sep"></span>
     <span class="marquee-item">LANDING PAGES</span><span class="marquee-sep"></span>
     <span class="marquee-item">PERFORMANCE</span><span class="marquee-sep"></span>
     <span class="marquee-item green">ESCALA</span><span class="marquee-sep"></span>
@@ -323,7 +323,7 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
 
 <!-- TRUST LOGOS -->
 <div class="trust-logos">
-  <p>Marcas que já escalaram com a gente</p>
+  <p>Marcas que jÃ¡ escalaram com a gente</p>
   <div class="logos-grid">
     <div class="logo-chip">URBANO STORE</div>
     <div class="logo-chip">NEXFLOW</div>
@@ -341,8 +341,8 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="stats-inner">
     <div class="stat-item"><div class="stat-num">+1.000</div><div class="stat-label">Clientes atendidos</div></div>
     <div class="stat-item"><div class="stat-num">+12</div><div class="stat-label">Segmentos diferentes</div></div>
-    <div class="stat-item"><div class="stat-num">5.8×</div><div class="stat-label">ROAS médio dos clientes</div></div>
-    <div class="stat-item"><div class="stat-num">93%</div><div class="stat-label">Taxa de renovação de contratos</div></div>
+    <div class="stat-item"><div class="stat-num">5.8Ã</div><div class="stat-label">ROAS mÃ©dio dos clientes</div></div>
+    <div class="stat-item"><div class="stat-num">93%</div><div class="stat-label">Taxa de renovaÃ§Ã£o de contratos</div></div>
   </div>
 </div>
 <!-- SERVICES -->
@@ -350,45 +350,45 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="services-inner">
     <div class="section-header">
       <div class="section-tag">O que entregamos</div>
-      <h2 class="section-title">Soluções que movem <em>resultado real</em></h2>
-      <p class="section-sub">Cada entrega é pensada para gerar receita mensurável — não impressões, não curtidas.</p>
+      <h2 class="section-title">SoluÃ§Ãµes que movem <em>resultado real</em></h2>
+      <p class="section-sub">Cada entrega Ã© pensada para gerar receita mensurÃ¡vel â nÃ£o impressÃµes, nÃ£o curtidas.</p>
     </div>
     <div class="services-grid">
       <div class="srv-card">
-        <div class="srv-icon">📈</div>
-        <div class="srv-title">Gestão de Google Ads</div>
-        <div class="srv-desc">Campanhas estruturadas para escalar com eficiência. Search, Shopping, Performance Max e Display com foco em ROAS real.</div>
-        <div class="srv-tag">↗ E-COMMERCE & SaaS</div>
+        <div class="srv-icon">ð</div>
+        <div class="srv-title">GestÃ£o de Google Ads</div>
+        <div class="srv-desc">Campanhas estruturadas para escalar com eficiÃªncia. Search, Shopping, Performance Max e Display com foco em ROAS real.</div>
+        <div class="srv-tag">â E-COMMERCE & SaaS</div>
       </div>
       <div class="srv-card">
-        <div class="srv-icon">🎯</div>
-        <div class="srv-title">Gestão de Meta Ads</div>
-        <div class="srv-desc">Criatividade + dados. Anúncios no Facebook e Instagram que capturam e convertem nas etapas certas do funil.</div>
-        <div class="srv-tag">↗ AQUISIÇÃO & RETARGETING</div>
+        <div class="srv-icon">ð¯</div>
+        <div class="srv-title">GestÃ£o de Meta Ads</div>
+        <div class="srv-desc">Criatividade + dados. AnÃºncios no Facebook e Instagram que capturam e convertem nas etapas certas do funil.</div>
+        <div class="srv-tag">â AQUISIÃÃO & RETARGETING</div>
       </div>
       <div class="srv-card">
-        <div class="srv-icon">⚡</div>
-        <div class="srv-title">Landing Pages de Alta Conversão</div>
-        <div class="srv-desc">Páginas criadas com base em dados, heurísticas de UX e testes A/B para transformar tráfego em leads e vendas.</div>
-        <div class="srv-tag">↗ CRO & CONVERSÃO</div>
+        <div class="srv-icon">â¡</div>
+        <div class="srv-title">Landing Pages de Alta ConversÃ£o</div>
+        <div class="srv-desc">PÃ¡ginas criadas com base em dados, heurÃ­sticas de UX e testes A/B para transformar trÃ¡fego em leads e vendas.</div>
+        <div class="srv-tag">â CRO & CONVERSÃO</div>
       </div>
       <div class="srv-card">
-        <div class="srv-icon">🔬</div>
+        <div class="srv-icon">ð¬</div>
         <div class="srv-title">CRO para E-commerce e SaaS</div>
-        <div class="srv-desc">Otimização contínua da taxa de conversão com testes, mapas de calor e análise comportamental.</div>
-        <div class="srv-tag">↗ MAIS RECEITA DO MESMO TRÁFEGO</div>
+        <div class="srv-desc">OtimizaÃ§Ã£o contÃ­nua da taxa de conversÃ£o com testes, mapas de calor e anÃ¡lise comportamental.</div>
+        <div class="srv-tag">â MAIS RECEITA DO MESMO TRÃFEGO</div>
       </div>
       <div class="srv-card">
-        <div class="srv-icon">🔄</div>
-        <div class="srv-title">Funis de Aquisição</div>
-        <div class="srv-desc">Estruturamos jornadas completas de compra — do primeiro clique ao cliente recorrente — com automação inteligente.</div>
-        <div class="srv-tag">↗ FUNIL & AUTOMAÇÃO</div>
+        <div class="srv-icon">ð</div>
+        <div class="srv-title">Funis de AquisiÃ§Ã£o</div>
+        <div class="srv-desc">Estruturamos jornadas completas de compra â do primeiro clique ao cliente recorrente â com automaÃ§Ã£o inteligente.</div>
+        <div class="srv-tag">â FUNIL & AUTOMAÃÃO</div>
       </div>
       <div class="srv-card">
-        <div class="srv-icon">📊</div>
-        <div class="srv-title">Análise de Métricas e Dashboards</div>
-        <div class="srv-desc">Visibilidade total do seu negócio. Relatórios claros, toda semana, para tomar decisões com base em dados reais.</div>
-        <div class="srv-tag">↗ DATA-DRIVEN</div>
+        <div class="srv-icon">ð</div>
+        <div class="srv-title">AnÃ¡lise de MÃ©tricas e Dashboards</div>
+        <div class="srv-desc">Visibilidade total do seu negÃ³cio. RelatÃ³rios claros, toda semana, para tomar decisÃµes com base em dados reais.</div>
+        <div class="srv-tag">â DATA-DRIVEN</div>
       </div>
     </div>
   </div>
@@ -399,32 +399,32 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="process-inner">
     <div class="section-header">
       <div class="section-tag">Como escalamos</div>
-      <h2 class="section-title">Do diagnóstico à <em>escala com segurança</em></h2>
-      <p class="section-sub">Um processo validado com mais de 1.000 operações — sem achismo, sem desperdício.</p>
+      <h2 class="section-title">Do diagnÃ³stico Ã  <em>escala com seguranÃ§a</em></h2>
+      <p class="section-sub">Um processo validado com mais de 1.000 operaÃ§Ãµes â sem achismo, sem desperdÃ­cio.</p>
     </div>
     <div class="process-steps">
-      <div class="step-card"><div class="step-num" data-n="01">PASSO</div><div class="step-title">Diagnóstico Completo</div><div class="step-desc">Mapeamos toda a sua operação: campanhas, site, funil, métricas e oportunidades ignoradas. Identificamos o que drena orçamento e o que pode escalar.</div></div>
-      <div class="step-card"><div class="step-num" data-n="02">PASSO</div><div class="step-title">Planejamento de Aquisição</div><div class="step-desc">Construímos a estratégia de canais, orçamento e metas com base em dados reais do seu mercado e da sua margem.</div></div>
-      <div class="step-card"><div class="step-num" data-n="03">PASSO</div><div class="step-title">Estruturação de Campanhas</div><div class="step-desc">Criamos ou reestruturamos campanhas com segmentação precisa, criativos validados e configuração técnica correta.</div></div>
-      <div class="step-card"><div class="step-num" data-n="04">PASSO</div><div class="step-title">Otimização de Conversão</div><div class="step-desc">Melhoramos landing pages, fluxos de compra e pontos de abandono para que cada real de mídia converta mais.</div></div>
-      <div class="step-card"><div class="step-num" data-n="05">PASSO</div><div class="step-title">Relatórios e Decisões por Dados</div><div class="step-desc">Entregamos dashboards e relatórios semanais claros — para você saber exatamente onde estamos e para onde vamos.</div></div>
-      <div class="step-card"><div class="step-num" data-n="06">PASSO</div><div class="step-title">Escala com Segurança</div><div class="step-desc">Com a base otimizada, escalamos o investimento de forma controlada, preservando eficiência e maximizando crescimento.</div></div>
+      <div class="step-card"><div class="step-num" data-n="01">PASSO</div><div class="step-title">DiagnÃ³stico Completo</div><div class="step-desc">Mapeamos toda a sua operaÃ§Ã£o: campanhas, site, funil, mÃ©tricas e oportunidades ignoradas. Identificamos o que drena orÃ§amento e o que pode escalar.</div></div>
+      <div class="step-card"><div class="step-num" data-n="02">PASSO</div><div class="step-title">Planejamento de AquisiÃ§Ã£o</div><div class="step-desc">ConstruÃ­mos a estratÃ©gia de canais, orÃ§amento e metas com base em dados reais do seu mercado e da sua margem.</div></div>
+      <div class="step-card"><div class="step-num" data-n="03">PASSO</div><div class="step-title">EstruturaÃ§Ã£o de Campanhas</div><div class="step-desc">Criamos ou reestruturamos campanhas com segmentaÃ§Ã£o precisa, criativos validados e configuraÃ§Ã£o tÃ©cnica correta.</div></div>
+      <div class="step-card"><div class="step-num" data-n="04">PASSO</div><div class="step-title">OtimizaÃ§Ã£o de ConversÃ£o</div><div class="step-desc">Melhoramos landing pages, fluxos de compra e pontos de abandono para que cada real de mÃ­dia converta mais.</div></div>
+      <div class="step-card"><div class="step-num" data-n="05">PASSO</div><div class="step-title">RelatÃ³rios e DecisÃµes por Dados</div><div class="step-desc">Entregamos dashboards e relatÃ³rios semanais claros â para vocÃª saber exatamente onde estamos e para onde vamos.</div></div>
+      <div class="step-card"><div class="step-num" data-n="06">PASSO</div><div class="step-title">Escala com SeguranÃ§a</div><div class="step-desc">Com a base otimizada, escalamos o investimento de forma controlada, preservando eficiÃªncia e maximizando crescimento.</div></div>
     </div>
   </div>
 </section>
 <!-- OFFICE IMAGE SECTION -->
 <div class="office-section">
   <div class="office-img-wrap">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop" alt="Agência premium — escritório moderno"/>
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85&auto=format&fit=crop" alt="AgÃªncia premium â escritÃ³rio moderno"/>
     <div class="office-img-overlay"></div>
     <div class="office-content">
       <div class="section-tag">Por que marcas confiam</div>
       <h2 class="section-title" style="color:#fff">Um time obcecado<br>por <em>resultados reais</em></h2>
-      <p class="section-sub">Não somos uma agência que entrega relatório bonito e some. Trabalhamos como sócios — dentro da sua operação, com metas compartilhadas.</p>
+      <p class="section-sub">NÃ£o somos uma agÃªncia que entrega relatÃ³rio bonito e some. Trabalhamos como sÃ³cios â dentro da sua operaÃ§Ã£o, com metas compartilhadas.</p>
       <div class="office-metrics">
         <div class="off-metric"><strong>+1.000</strong><span>empresas atendidas</span></div>
         <div class="off-metric"><strong>+12</strong><span>segmentos</span></div>
-        <div class="off-metric"><strong>93%</strong><span>renovação</span></div>
+        <div class="off-metric"><strong>93%</strong><span>renovaÃ§Ã£o</span></div>
       </div>
     </div>
   </div>
@@ -434,46 +434,46 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
 <section class="trust-blocks" id="cases">
   <div class="trust-inner">
     <div class="section-header">
-      <div class="section-tag">Confiança & credibilidade</div>
-      <h2 class="section-title">O que coloca a <em>Pantoja & Co</em> à frente</h2>
-      <p class="section-sub">Construímos autoridade com consistência, processo e resultados documentados.</p>
+      <div class="section-tag">ConfianÃ§a & credibilidade</div>
+      <h2 class="section-title">O que coloca a <em>Pantoja & Co</em> Ã  frente</h2>
+      <p class="section-sub">ConstruÃ­mos autoridade com consistÃªncia, processo e resultados documentados.</p>
     </div>
     <div class="trust-grid">
       <div class="trust-card">
-        <div class="trust-icon">🏆</div>
+        <div class="trust-icon">ð</div>
         <div class="trust-num">+1.000</div>
         <div class="trust-label">Empresas atendidas</div>
-        <div class="trust-detail">De e-commerces em crescimento a SaaS com ARR alto. Experiência acumulada em mais de 12 segmentos diferentes.</div>
+        <div class="trust-detail">De e-commerces em crescimento a SaaS com ARR alto. ExperiÃªncia acumulada em mais de 12 segmentos diferentes.</div>
       </div>
       <div class="trust-card">
-        <div class="trust-icon">🎯</div>
+        <div class="trust-icon">ð¯</div>
         <div class="trust-num">+12</div>
         <div class="trust-label">Segmentos dominados</div>
-        <div class="trust-detail">Moda, beauty, tecnologia, educação, saúde digital, B2B SaaS, marketplace e mais. Processo adaptado para cada vertical.</div>
+        <div class="trust-detail">Moda, beauty, tecnologia, educaÃ§Ã£o, saÃºde digital, B2B SaaS, marketplace e mais. Processo adaptado para cada vertical.</div>
       </div>
       <div class="trust-card">
-        <div class="trust-icon">📊</div>
+        <div class="trust-icon">ð</div>
         <div class="trust-num">Semanal</div>
-        <div class="trust-label">Relatórios claros toda semana</div>
-        <div class="trust-detail">Sem surpresas no fim do mês. Você acompanha o desempenho em tempo real com dashboards e relatórios comentados.</div>
+        <div class="trust-label">RelatÃ³rios claros toda semana</div>
+        <div class="trust-detail">Sem surpresas no fim do mÃªs. VocÃª acompanha o desempenho em tempo real com dashboards e relatÃ³rios comentados.</div>
       </div>
       <div class="trust-card">
-        <div class="trust-icon">🔬</div>
+        <div class="trust-icon">ð¬</div>
         <div class="trust-num">Validado</div>
         <div class="trust-label">Processo baseado em dados</div>
-        <div class="trust-detail">Cada decisão é apoiada por métricas reais. Nada de achismo, nada de intuição sem evidência — tudo testado e documentado.</div>
+        <div class="trust-detail">Cada decisÃ£o Ã© apoiada por mÃ©tricas reais. Nada de achismo, nada de intuiÃ§Ã£o sem evidÃªncia â tudo testado e documentado.</div>
       </div>
       <div class="trust-card">
-        <div class="trust-icon">⚡</div>
+        <div class="trust-icon">â¡</div>
         <div class="trust-num">E-com + SaaS</div>
         <div class="trust-label">Especialistas em dois mundos</div>
-        <div class="trust-detail">Somos especialistas em e-commerce E em SaaS. Dois modelos distintos, com estratégias, funis e KPIs completamente diferentes.</div>
+        <div class="trust-detail">Somos especialistas em e-commerce E em SaaS. Dois modelos distintos, com estratÃ©gias, funis e KPIs completamente diferentes.</div>
       </div>
       <div class="trust-card">
-        <div class="trust-icon">🔗</div>
+        <div class="trust-icon">ð</div>
         <div class="trust-num">93%</div>
-        <div class="trust-label">Taxa de renovação de contratos</div>
-        <div class="trust-detail">Nossos clientes ficam. Porque veem resultado. Essa é a métrica que mais nos orgulha — e a que mais fazemos questão de manter.</div>
+        <div class="trust-label">Taxa de renovaÃ§Ã£o de contratos</div>
+        <div class="trust-detail">Nossos clientes ficam. Porque veem resultado. Essa Ã© a mÃ©trica que mais nos orgulha â e a que mais fazemos questÃ£o de manter.</div>
       </div>
     </div>
   </div>
@@ -483,34 +483,34 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="testi-inner">
     <div class="section-header">
       <div class="section-tag">Depoimentos</div>
-      <h2 class="section-title">Quem já <em>escalou com a gente</em></h2>
+      <h2 class="section-title">Quem jÃ¡ <em>escalou com a gente</em></h2>
       <p class="section-sub">Resultados reais de fundadores, gestores e diretores que apostaram em processo e dados.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <p class="testi-quote">"Depois da Pantoja & Co, nossa aquisição ficou mais previsível. Finalmente entendemos quais campanhas traziam lucro real."</p>
+        <p class="testi-quote">"Depois da Pantoja & Co, nossa aquisiÃ§Ã£o ficou mais previsÃ­vel. Finalmente entendemos quais campanhas traziam lucro real."</p>
         <div class="testi-author">
           <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80&auto=format&fit=crop" alt="Mariana Costa"/>
           <div>
             <div class="testi-name">Mariana Costa</div>
-            <div class="testi-role">Founder — E-commerce de Moda</div>
+            <div class="testi-role">Founder â E-commerce de Moda</div>
           </div>
           <span class="testi-type ec">E-COMMERCE</span>
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"O time organizou nosso funil, melhorou a landing page e reduziu o desperdício de mídia. A operação ficou muito mais clara."</p>
+        <p class="testi-quote">"O time organizou nosso funil, melhorou a landing page e reduziu o desperdÃ­cio de mÃ­dia. A operaÃ§Ã£o ficou muito mais clara."</p>
         <div class="testi-author">
           <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80&auto=format&fit=crop" alt="Rafael Mendes"/>
           <div>
             <div class="testi-name">Rafael Mendes</div>
-            <div class="testi-role">CEO — SaaS B2B</div>
+            <div class="testi-role">CEO â SaaS B2B</div>
           </div>
           <span class="testi-type saas">SaaS</span>
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"Eles não entregam só tráfego. Entregam visão, processo e números que ajudam a tomar decisão."</p>
+        <p class="testi-quote">"Eles nÃ£o entregam sÃ³ trÃ¡fego. Entregam visÃ£o, processo e nÃºmeros que ajudam a tomar decisÃ£o."</p>
         <div class="testi-author">
           <img class="testi-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&auto=format&fit=crop" alt="Camila Rocha"/>
           <div>
@@ -521,7 +521,7 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">"Saímos de campanhas soltas para uma máquina de aquisição com métricas, testes e melhoria contínua."</p>
+        <p class="testi-quote">"SaÃ­mos de campanhas soltas para uma mÃ¡quina de aquisiÃ§Ã£o com mÃ©tricas, testes e melhoria contÃ­nua."</p>
         <div class="testi-author">
           <img class="testi-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop" alt="Bruno Almeida"/>
           <div>
@@ -538,10 +538,10 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
 <!-- CTA -->
 <section class="cta-section" id="cta">
   <div class="cta-box">
-    <h2>Pronto para escalar<br><em>com segurança?</em></h2>
-    <p>Fale com um especialista da Pantoja & Co e descubra como transformar tráfego em receita previsível.</p>
-    <a href="https://wa.me/5511999999999" class="btn-primary" style="display:inline-block">Falar com especialista agora →</a>
-    <p class="cta-note">Sem compromisso. Diagnóstico gratuito na primeira conversa.</p>
+    <h2>Pronto para escalar<br><em>com seguranÃ§a?</em></h2>
+    <p>Fale com um especialista da Pantoja & Co e descubra como transformar trÃ¡fego em receita previsÃ­vel.</p>
+    <a href="https://wa.me/5511999999999" class="btn-primary" style="display:inline-block">Falar com especialista agora â</a>
+    <p class="cta-note">Sem compromisso. DiagnÃ³stico gratuito na primeira conversa.</p>
   </div>
 </section>
 
@@ -550,16 +550,16 @@ footer{padding:50px 40px;border-top:1px solid var(--border);background:var(--bg2
   <div class="footer-inner">
     <div>
       <div class="footer-brand">Pantoja <em>&</em> Co</div>
-      <div style="font-size:13px;color:var(--gray);margin-top:6px">Agência especialista em E-commerce e SaaS</div>
+      <div style="font-size:13px;color:var(--gray);margin-top:6px">AgÃªncia especialista em E-commerce e SaaS</div>
     </div>
     <div class="footer-links">
-      <a href="#services">Serviços</a>
+      <a href="#services">ServiÃ§os</a>
       <a href="#process">Processo</a>
       <a href="#cases">Resultados</a>
       <a href="#testimonials">Depoimentos</a>
       <a href="#cta">Contato</a>
     </div>
-    <div class="footer-copy">© 2025 Pantoja & Co. Todos os direitos reservados.</div>
+    <div class="footer-copy">Â© 2025 Pantoja & Co. Todos os direitos reservados.</div>
   </div>
 </footer>
 
