@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agência Pantoja & Co | Criatividade que Transforma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--black:#0a0a0a;
+--white:#fafafa;
+--gold:#d4a843;
+--gold-light:#f0c060;
+--cream:#f5f0e8;
+--gray:#888;
+--dark-gray:#1a1a1a;
+}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;backdrop-filter:blur(0px)}
+nav.scrolled{background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:16px 60px;border-bottom:1px solid rgba(212,168,67,.2)}
+.nav-logo{font-family:"Syne",sans-serif;font-size:1.4rem;font-weight:800;color:var(--white);letter-spacing:-0.5px}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;font-weight:500;letter-spacing:.5px;transition:color .3s;text-transform:uppercase}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black);padding:12px 28px;border-radius:50px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .3s;letter-spacing:.5px}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,.4)}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 60px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(212,168,67,.15) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(212,168,67,.08) 0%,transparent 50%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.05) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:var(--gold);padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:32px}
+.hero-tag::before{content:"";width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.hero h1{font-family:"Syne",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.hero h1 .line{overflow:hidden;display:block}
+.hero h1 .accent{color:var(--gold)}
+.hero-desc{font-size:1.1rem;color:rgba(255,255,255,.6);line-height:1.8;max-width:500px;margin-bottom:48px}
+.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--black);padding:16px 40px;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 15px 40px rgba(212,168,67,.5)}
+.btn-secondary{color:var(--white);padding:16px 40px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:all .3s;border:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:10px}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{position:absolute;right:60px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px;z-index:2}
+.stat-item{text-align:center}
+.stat-num{font-family:"Syne",sans-serif;font-size:2.5rem;font-weight:800;color:var(--gold);line-height:1}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.stat-line{width:1px;height:60px;background:linear-gradient(transparent,var(--gold),transparent);margin:0 auto}
+/* MARQUEE */
+.marquee-section{padding:40px 0;border-top:1px solid rgba(212,168,67,.15);border-bottom:1px solid rgba(212,168,67,.15);overflow:hidden}
+.marquee-track{display:flex;gap:60px;animation:marquee 20s linear infinite;white-space:nowrap}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:20px;letter-spacing:1px}
+.marquee-item span{color:var(--gold);font-size:1.4rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* SECTIONS */
+section{padding:120px 60px}
+.section-tag{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.section-tag::before{content:"";flex-shrink:0;width:30px;height:1px;background:var(--gold)}
+.section-title{font-family:"Syne",sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+.section-subtitle{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.7;max-width:500px}
+/* ABOUT */
+.about{background:var(--dark-gray)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+.about-visual{position:relative}
+.about-card{background:var(--black);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:40px;position:relative;overflow:hidden}
+.about-card::before{content:"";position:absolute;top:-1px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.about-card-num{font-family:"Syne",sans-serif;font-size:5rem;font-weight:800;color:rgba(212,168,67,.1);line-height:1;margin-bottom:12px}
+.about-card-title{font-size:1.2rem;font-weight:600;margin-bottom:8px}
+.about-card-text{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.6}
+.about-grid-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.about-text p{color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px;font-size:1rem}
+.about-features{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.feature-item{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.7);font-size:.9rem}
+.feature-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.service-card{background:var(--dark-gray);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;transition:all .4s;cursor:default;position:relative;overflow:hidden}
+.service-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.service-card:hover{border-color:rgba(212,168,67,.3);transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-icon{width:56px;height:56px;background:rgba(212,168,67,.1);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.5rem;transition:all .4s}
+.service-card:hover .service-icon{background:rgba(212,168,67,.2);transform:rotate(5deg)}
+.service-card h3{font-family:"Syne",sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:12px}
+.service-card p{color:rgba(255,255,255,.5);font-size:.9rem;line-height:1.7}
+.service-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.service-tag{background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);padding:4px 12px;border-radius:20px;font-size:.75rem}
+/* PORTFOLIO */
+.portfolio{background:var(--dark-gray)}
+.portfolio-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.portfolio-item{border-radius:20px;overflow:hidden;position:relative;cursor:pointer;background:var(--black)}
+.portfolio-item:nth-child(1){grid-column:span 7;aspect-ratio:16/9}
+.portfolio-item:nth-child(2){grid-column:span 5;aspect-ratio:4/3}
+.portfolio-item:nth-child(3){grid-column:span 4;aspect-ratio:1}
+.portfolio-item:nth-child(4){grid-column:span 4;aspect-ratio:1}
+.portfolio-item:nth-child(5){grid-column:span 4;aspect-ratio:1}
+.portfolio-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform .6s}
+.portfolio-item:hover .portfolio-bg{transform:scale(1.05)}
+.portfolio-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:30px;transform:translateY(10px);opacity:0;transition:all .4s}
+.portfolio-item:hover .portfolio-overlay{opacity:1;transform:translateY(0)}
+.portfolio-cat{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.portfolio-name{font-family:"Syne",sans-serif;font-size:1.2rem;font-weight:700}
+.p1{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+.p2{background:linear-gradient(135deg,#0f3460,#533483)}
+.p3{background:linear-gradient(135deg,#2d1b69,#11998e)}
+.p4{background:linear-gradient(135deg,#373b44,#4286f4)}
+.p5{background:linear-gradient(135deg,#642b73,#c6426e)}
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;position:relative}
+.process-steps::before{content:"";position:absolute;top:40px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);z-index:0}
+.process-step{text-align:center;position:relative;z-index:1}
+.step-num{width:80px;height:80px;background:var(--black);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-size:1.5rem;font-weight:800;color:var(--gold);margin:0 auto 24px}
+.step-title{font-family:"Syne",sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.step-desc{color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.6;padding:0 20px}
+/* TESTIMONIALS */
+.testimonials{background:var(--dark-gray)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
+.testimonial-card{background:var(--black);border:1px solid rgba(212,168,67,.15);border-radius:20px;padding:36px;transition:all .3s}
+.testimonial-card:hover{border-color:rgba(212,168,67,.4);transform:translateY(-4px)}
+.testimonial-stars{color:var(--gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px}
+.testimonial-text{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.8;margin-bottom:24px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--black);font-size:1.1rem}
+.author-name{font-weight:600;font-size:.95rem}
+.author-role{color:rgba(255,255,255,.4);font-size:.8rem}
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,rgba(212,168,67,.15) 0%,transparent 50%),var(--dark-gray);text-align:center;border-top:1px solid rgba(212,168,67,.2);border-bottom:1px solid rgba(212,168,67,.2)}
+.cta-section h2{font-family:"Syne",sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-2px;margin-bottom:20px}
+.cta-section p{color:rgba(255,255,255,.6);font-size:1.1rem;margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-actions{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px}
+.contact-form{background:var(--dark-gray);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:48px}
+.form-group{margin-bottom:24px}
+.form-group label{display:block;color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;margin-bottom:8px;letter-spacing:.5px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 18px;color:var(--white);font-family:"Inter",sans-serif;font-size:.95rem;transition:all .3s;outline:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(212,168,67,.05)}
+.form-group textarea{height:120px;resize:vertical}
+.form-group select option{background:var(--dark-gray)}
+.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:16px;border-radius:12px;font-family:"Syne",sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,.4)}
+.contact-info{padding-top:20px}
+.contact-info h3{font-family:"Syne",sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:16px}
+.contact-info p{color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:40px}
+.contact-items{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;align-items:center;gap:20px}
+.contact-icon{width:52px;height:52px;background:rgba(212,168,67,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.contact-item-text strong{display:block;font-weight:600;margin-bottom:2px}
+.contact-item-text span{color:rgba(255,255,255,.5);font-size:.9rem}
+/* FOOTER */
+footer{background:var(--dark-gray);border-top:1px solid rgba(212,168,67,.15);padding:80px 60px 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-brand .nav-logo{font-size:1.6rem;display:inline-block;margin-bottom:16px}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:.9rem;line-height:1.8;max-width:280px;margin-bottom:24px}
+.social-links{display:flex;gap:12px}
+.social-link{width:40px;height:40px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none;transition:all .3s}
+.social-link:hover{background:rgba(212,168,67,.2);border-color:var(--gold)}
+.footer-col h4{font-family:"Syne",sans-serif;font-weight:700;margin-bottom:20px;color:var(--white)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.9rem;transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{color:rgba(255,255,255,.3);font-size:.85rem}
+/* CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:difference}
+.cursor-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(212,168,67,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+/* MOBILE */
+@media(max-width:768px){nav{padding:20px 24px}nav.scrolled{padding:14px 24px}.nav-links,.nav-cta{display:none}.hero{padding:0 24px}.hero-stats{display:none}section{padding:80px 24px}.about-grid,.services-grid,.portfolio-header,.contact-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.portfolio-item:nth-child(n){grid-column:span 12}.footer-grid{grid-template-columns:1fr 1fr}.process-steps{grid-template-columns:1fr 1fr;gap:40px}.process-steps::before{display:none}.footer-bottom{flex-direction:column;gap:16px;text-align:center}}
+</style>
+</head>
+<body>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+<nav id="navbar">
+  <a href="#" class="nav-logo">Pantoja<span>&</span>Co</a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#processo">Processo</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Falar Conosco</a>
+</nav>
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Agencia Criativa Premium</div>
+    <h1>
+      <span class="line">Criamos marcas</span>
+      <span class="line">que <span class="accent">dominam</span></span>
+      <span class="line">o mercado.</span>
+    </h1>
+    <p class="hero-desc">Somos especialistas em transformar ideias ousadas em experiencias digitais memoraveis. Design, estrategia e resultados que elevam o seu negocio.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">Ver Nosso Trabalho <span>&#8594;</span></a>
+      <a href="#contato" class="btn-secondary">Iniciar Projeto</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">180+</div><div class="stat-label">Projetos</div></div>
+    <div class="stat-line"></div>
+    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Satisfacao</div></div>
+    <div class="stat-line"></div>
+    <div class="stat-item"><div class="stat-num">12+</div><div class="stat-label">Anos</div></div>
+  </div>
+</section>
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">Branding <span>&#10022;</span></div>
+    <div class="marquee-item">Web Design <span>&#10022;</span></div>
+    <div class="marquee-item">Marketing Digital <span>&#10022;</span></div>
+    <div class="marquee-item">Social Media <span>&#10022;</span></div>
+    <div class="marquee-item">UX/UI Design <span>&#10022;</span></div>
+    <div class="marquee-item">SEO <span>&#10022;</span></div>
+    <div class="marquee-item">Trafego Pago <span>&#10022;</span></div>
+    <div class="marquee-item">Identidade Visual <span>&#10022;</span></div>
+    <div class="marquee-item">Branding <span>&#10022;</span></div>
+    <div class="marquee-item">Web Design <span>&#10022;</span></div>
+    <div class="marquee-item">Marketing Digital <span>&#10022;</span></div>
+    <div class="marquee-item">Social Media <span>&#10022;</span></div>
+    <div class="marquee-item">UX/UI Design <span>&#10022;</span></div>
+    <div class="marquee-item">SEO <span>&#10022;</span></div>
+    <div class="marquee-item">Trafego Pago <span>&#10022;</span></div>
+    <div class="marquee-item">Identidade Visual <span>&#10022;</span></div>
+  </div>
+</div>
+<section class="about" id="sobre">
+  <div class="section-tag">Sobre Nos</div>
+  <h2 class="section-title reveal">Somos a agencia que<br>transforma visoes em resultados</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>A Pantoja & Co nasceu da paixao por criar experiencias que marcam. Ha mais de 12 anos no mercado, construimos uma reputacao solida baseada em criatividade, estrategia e entrega de resultados excepcionais.</p>
+      <p>Nossa equipe multidisciplinar combina design de vanguarda com estrategias de marketing orientadas por dados, garantindo que cada projeto nao apenas impressione visualmente, mas tambem gere impacto real nos negocios dos nossos clientes.</p>
+      <div class="about-features">
+        <div class="feature-item"><div class="feature-dot"></div>Equipe especializada em cada area</div>
+        <div class="feature-item"><div class="feature-dot"></div>Metodologia agil com entregas rapidas</div>
+        <div class="feature-item"><div class="feature-dot"></div>Foco em ROI e metricas de negocio</div>
+        <div class="feature-item"><div class="feature-dot"></div>Suporte continuo pos-projeto</div>
+      </div>
+    </div>
+    <div class="about-grid-cards reveal reveal-delay-2">
+      <div class="about-card"><div class="about-card-num">01</div><div class="about-card-title">Estrategia</div><div class="about-card-text">Planejamos cada detalhe para maximizar o impacto da sua marca no mercado.</div></div>
+      <div class="about-card"><div class="about-card-num">02</div><div class="about-card-title">Criatividade</div><div class="about-card-text">Design que comunica, emociona e diferencia sua marca da concorrencia.</div></div>
+      <div class="about-card"><div class="about-card-num">03</div><div class="about-card-title">Resultado</div><div class="about-card-text">Entregamos crescimento mensuravel e ROI comprovado para nossos clientes.</div></div>
+      <div class="about-card"><div class="about-card-num">04</div><div class="about-card-title">Parceria</div><div class="about-card-text">Somos mais que uma agencia - somos parceiros estrategicos do seu sucesso.</div></div>
+    </div>
+  </div>
+</section>
+<section id="servicos">
+  <div class="section-tag reveal">Nossos Servicos</div>
+  <h2 class="section-title reveal">Tudo que sua marca<br>precisa para crescer</h2>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">&#9728;</div>
+      <h3>Branding & Identidade Visual</h3>
+      <p>Criamos identidades visuais completas que capturam a essencia da sua marca e a diferenciam no mercado de forma memoravel e consistente.</p>
+      <div class="service-tags"><span class="service-tag">Logo</span><span class="service-tag">Manual de Marca</span><span class="service-tag">Brand Voice</span></div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#128187;</div>
+      <h3>Web Design & Desenvolvimento</h3>
+      <p>Sites e aplicacoes que combinam estetica impecavel com performance tecnica, convertendo visitantes em clientes de forma consistente.</p>
+      <div class="service-tags"><span class="service-tag">Landing Pages</span><span class="service-tag">E-commerce</span><span class="service-tag">Web App</span></div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#128202;</div>
+      <h3>Marketing Digital & Trafego</h3>
+      <p>Estrategias de marketing integradas que geram leads qualificados e aumentam as vendas atraves de campanhas orientadas por dados.</p>
+      <div class="service-tags"><span class="service-tag">Google Ads</span><span class="service-tag">Meta Ads</span><span class="service-tag">SEO</span></div>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon">&#128247;</div>
+      <h3>Social Media & Conteudo</h3>
+      <p>Gerenciamos e criamos conteudo estrategico para suas redes sociais, construindo comunidades engajadas e fortalecendo sua presenca digital.</p>
+      <div class="service-tags"><span class="service-tag">Instagram</span><span class="service-tag">TikTok</span><span class="service-tag">LinkedIn</span></div>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon">&#127916;</div>
+      <h3>Producao Audiovisual</h3>
+      <p>Videos, reels e conteudo audiovisual profissional que conta a historia da sua marca de forma cativante e impactante para diferentes plataformas.</p>
+      <div class="service-tags"><span class="service-tag">Videos</span><span class="service-tag">Reels</span><span class="service-tag">Motion</span></div>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon">&#128200;</div>
+      <h3>Consultoria Estrategica</h3>
+      <p>Analisamos seu negocio em profundidade e desenvolvemos planos estrategicos personalizados para acelerar o crescimento e a visibilidade da sua marca.</p>
+      <div class="service-tags"><span class="service-tag">Diagn. de Marca</span><span class="service-tag">Planejamento</span><span class="service-tag">KPIs</span></div>
+    </div>
+  </div>
+</section>
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-tag reveal">Nosso Portfolio</div>
+      <h2 class="section-title reveal">Trabalhos que<br>falam por si</h2>
+    </div>
+    <a href="#contato" class="btn-secondary reveal">Ver Todos os Cases</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <div class="portfolio-bg p1">&#127775;</div>
+      <div class="portfolio-overlay"><div class="portfolio-cat">Branding + Web</div><div class="portfolio-name">Luxe Boutique Hotel</div></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg p2">&#128640;</div>
+      <div class="portfolio-overlay"><div class="portfolio-cat">Marketing Digital</div><div class="portfolio-name">TechStart App</div></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg p3">&#127808;</div>
+      <div class="portfolio-overlay"><div class="portfolio-cat">Identidade Visual</div><div class="portfolio-name">Organic Foods Co.</div></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg p4">&#128176;</div>
+      <div class="portfolio-overlay"><div class="portfolio-cat">E-commerce</div><div class="portfolio-name">Finance Pro</div></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-bg p5">&#127925;</div>
+      <div class="portfolio-overlay"><div class="portfolio-cat">Social Media</div><div class="portfolio-name">Sound Studio</div></div>
+    </div>
+  </div>
+</section>
+<section id="processo">
+  <div class="section-tag reveal">Nosso Processo</div>
+  <h2 class="section-title reveal">Como transformamos<br>sua ideia em realidade</h2>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Descoberta</div>
+      <div class="step-desc">Mergulhamos no seu negocio para entender objetivos, mercado, concorrentes e oportunidades de crescimento.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <div class="step-title">Estrategia</div>
+      <div class="step-desc">Desenvolvemos um plano de acao completo com definicao de posicionamento, personas e roadmap criativo.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <div class="step-title">Criacao</div>
+      <div class="step-desc">Nossa equipe cria solucoes visuais e estrategicas que superam expectativas e diferenciam sua marca.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-title">Lancamento</div>
+      <div class="step-desc">Implementamos, lancamos e monitoramos continuamente para garantir os melhores resultados possiveis.</div>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <div class="section-tag reveal">Depoimentos</div>
+  <h2 class="section-title reveal">O que nossos clientes<br>dizem sobre nos</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"A Pantoja & Co transformou completamente a presenca digital da nossa empresa. O rebranding e o novo site aumentaram nossas conversoes em 340%. Parceria incrivel!"</p>
+      <div class="testimonial-author"><div class="author-avatar">R</div><div><div class="author-name">Ricardo Mendes</div><div class="author-role">CEO, TechVision</div></div></div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"Contratamos a agencia para uma campanha de marketing digital e os resultados superaram todas as expectativas. ROAS de 8x no primeiro mes. Equipe comprometida e criativa."</p>
+      <div class="testimonial-author"><div class="author-avatar">A</div><div><div class="author-name">Ana Paula Costa</div><div class="author-role">Diretora de Marketing, Natura Style</div></div></div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"O trabalho de branding foi absolutamente excepcional. Nossa identidade visual agora reflete perfeitamente os valores da marca. Recomendo sem hesitar!"</p>
+      <div class="testimonial-author"><div class="author-avatar">M</div><div><div class="author-name">Marcos Oliveira</div><div class="author-role">Fundador, Artisano Foods</div></div></div>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="section-tag reveal" style="justify-content:center">Pronto para comecar?</div>
+  <h2 class="reveal">Sua marca merece<br><span style="color:var(--gold)">o melhor</span></h2>
+  <p class="reveal">Vamos conversar sobre como podemos transformar sua marca e acelerar o crescimento do seu negocio.</p>
+  <div class="cta-actions reveal">
+    <a href="#contato" class="btn-primary">Solicitar Proposta <span>&#8594;</span></a>
+    <a href="https://wa.me/5511999999999" class="btn-secondary">&#128172; WhatsApp</a>
+  </div>
+</section>
+<section id="contato">
+  <div class="section-tag reveal">Contato</div>
+  <h2 class="section-title reveal">Vamos criar algo<br>incrivel juntos</h2>
+  <div class="contact-grid">
+    <div class="contact-form reveal">
+      <h3 style="font-family:Syne,sans-serif;font-size:1.5rem;margin-bottom:32px">Envie uma mensagem</h3>
+      <div class="form-group"><label>Nome Completo</label><input type="text" placeholder="Seu nome"></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="email@empresa.com"></div>
+      <div class="form-group"><label>Empresa</label><input type="text" placeholder="Nome da sua empresa"></div>
+      <div class="form-group"><label>Servico de Interesse</label><select><option>Selecione um servico</option><option>Branding & Identidade Visual</option><option>Web Design & Desenvolvimento</option><option>Marketing Digital</option><option>Social Media</option><option>Producao Audiovisual</option><option>Consultoria Estrategica</option></select></div>
+      <div class="form-group"><label>Mensagem</label><textarea placeholder="Conte-nos sobre seu projeto..."></textarea></div>
+      <button class="form-submit">Enviar Mensagem &#8594;</button>
+    </div>
+    <div class="contact-info reveal reveal-delay-2">
+      <h3>Fale com nossa equipe</h3>
+      <p>Estamos prontos para ouvir sobre seu projeto e apresentar as melhores solucoes para o crescimento da sua marca.</p>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-icon">&#128205;</div><div class="contact-item-text"><strong>Sao Paulo, SP</strong><span>Av. Paulista, 1578 - Bela Vista</span></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128222;</div><div class="contact-item-text"><strong>(11) 9 9999-8888</strong><span>Seg. a Sex, 9h - 18h</span></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128140;</div><div class="contact-item-text"><strong>contato@pantojaeco.com</strong><span>Respondemos em ate 24h</span></div></div>
+        <div class="contact-item"><div class="contact-icon">&#128172;</div><div class="contact-item-text"><strong>WhatsApp</strong><span>Atendimento rapido via chat</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Pantoja<span style="color:var(--gold)">&</span>Co</div>
+      <p>Criamos experiencias digitais que transformam marcas em referencias de mercado. Criatividade, estrategia e resultados.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">&#9993;</a>
+        <a href="#" class="social-link">&#128247;</a>
+        <a href="#" class="social-link">&#128101;</a>
+        <a href="#" class="social-link">&#127909;</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Servicos</h4><ul class="footer-links"><li><a href="#">Branding</a></li><li><a href="#">Web Design</a></li><li><a href="#">Marketing Digital</a></li><li><a href="#">Social Media</a></li><li><a href="#">Audiovisual</a></li></ul></div>
+    <div class="footer-col"><h4>Empresa</h4><ul class="footer-links"><li><a href="#">Sobre Nos</a></li><li><a href="#">Portfolio</a></li><li><a href="#">Blog</a></li><li><a href="#">Carreiras</a></li><li><a href="#">Contato</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul class="footer-links"><li><a href="#">Politica de Privacidade</a></li><li><a href="#">Termos de Uso</a></li><li><a href="#">Cookies</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>&#169; 2026 Pantoja & Co. Todos os direitos reservados.</p>
+    <p>Feito com &#10084; no Brasil</p>
+  </div>
+</footer>
+<script>
+// Cursor
+const cursor = document.querySelector('.cursor');
+const cursorRing = document.querySelector('.cursor-ring');
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  cursorRing.style.left = e.clientX + 'px';
+  cursorRing.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.service-card,.portfolio-item').forEach(el => {
+  el.addEventListener('mouseenter', () => cursorRing.style.transform = 'translate(-50%,-50%) scale(2)');
+  el.addEventListener('mouseleave', () => cursorRing.style.transform = 'translate(-50%,-50%) scale(1)');
+});
+// Navbar
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+// Reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Form
+document.querySelector('.form-submit').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.textContent = 'Mensagem Enviada! ✓';
+  this.style.background = '#27ae60';
+  setTimeout(() => { this.textContent = 'Enviar Mensagem →'; this.style.background = ''; }, 3000);
+});
+</script>
+</body>
+</html>
